@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* Brand tokens.
+   Do not invent off-palette colors. */
+@theme {
+  --color-teal-700: #0F6E56;
+  --color-teal-600: #1A8D6F;
+  --color-teal-50:  #E8F1ED;
+
+  --color-navy-900: #1A2E44;
+  --color-navy-700: #2C4866;
+
+  --color-cream-50:  #FAFAF6;
+  --color-cream-100: #F4F1E8;
+
+  --color-amber-700: #BA7517;
+  --color-amber-50:  #FBF1DC;
+
+  --color-coral-600: #D85A30;
+
+  --color-ink-900:    #1A1A1A;
+  --color-muted-500:  #5C6470;
+  --color-rule-200:   #E5E2D8;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Source Serif 4", "Source Serif 4 Fallback", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+/* The Source Serif 4 and Inter faces are in components/FontFaces.astro, where
+   their URLs get the site base. */
+
+/* Fallback faces with metric overrides to neutralize CLS during font swap. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Segoe UI"), local("Roboto"), local("Arial");
+  ascent-override: 90%;
+  descent-override: 22.43%;
+  line-gap-override: 0%;
+  size-adjust: 107.64%;
+}
+
+/* Fallback metrics derived from Source Serif 4's own metrics
+   (unitsPerEm 1000, ascent 1036, descent 335, xHeight 475) mapped onto Georgia
+   (unitsPerEm 2048, xHeight 986). Keeps CLS in the negligible range during swap. */
+@font-face {
+  font-family: "Source Serif 4 Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  ascent-override: 104%;
+  descent-override: 34%;
+  line-gap-override: 0%;
+  size-adjust: 99%;
+}
+
+/* Base */
+html {
+  background: var(--color-cream-50);
+  color: var(--color-ink-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans), "Inter Fallback";
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Visible focus for keyboard users. In the base layer, so a rounded utility such as
+   rounded-full keeps its shape instead of being squared off by the 2px radius. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-teal-700);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Even line lengths in headings, and no single-word last lines in paragraphs. */
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* A link inside running text. Underlined, because teal and the navy body text are too
+   close in contrast (about 1.5:1) for color alone to mark a link. */
+@utility link {
+  color: var(--color-teal-700);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, var(--color-teal-700) 45%, transparent);
+  transition: color 150ms, text-decoration-color 150ms;
+  &:hover {
+    color: var(--color-teal-600);
+    text-decoration-color: currentColor;
+  }
+}
+
+/* Skip-to-content link — visible only when focused. */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.75rem 1rem;
+  background: var(--color-navy-900);
+  color: var(--color-cream-50);
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform 150ms ease;
+  z-index: 100;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Subtle fade-in on scroll — CSS-only via scroll-driven animations.
+   Falls back to instantly visible in browsers without support. */
+@supports (animation-timeline: view()) {
+  .fade-up {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 50%;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Respect the user's motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

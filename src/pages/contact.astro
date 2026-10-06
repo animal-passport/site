@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+<BaseLayout
+  title="Contact — Animal Passport"
+  description="Contact the Animal Passport project with questions, corrections, or an interest in testing or implementing the format."
+>
+  <PageHeader
+    eyebrow="Contact"
+    title="Contact us"
+    lede="Send us a question, a correction, or a note about testing or implementing the format. Every message is read, and we reply by email."
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24">
+    <ContactForm />
+  </div>
+</BaseLayout>

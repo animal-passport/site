@@ -1,0 +1,31 @@
+---
+/**
+ * The two web-font faces. They live here rather than in global.css because a
+ * url() in bundled CSS is not given the site base, so "/fonts/..." 404s under
+ * /animal-passport. withBase() adds it, and follows the base if it changes.
+ * The metric-override fallback faces stay in global.css - they load nothing.
+ */
+import { withBase } from "../lib/paths";
+
+const css = `
+/* Source Serif 4 - variable (opsz 8-60, wght 200-900), subsetted to ASCII + typographic punctuation.
+   font-display: swap is non-negotiable for Lighthouse Performance. */
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("${withBase("/fonts/SourceSerif4.woff2")}") format("woff2-variations");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter - variable, pre-subset Latin build from rsms. */
+@font-face {
+  font-family: "Inter";
+  src: url("${withBase("/fonts/Inter.woff2")}") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+`;
+---
+<style is:inline set:html={css}></style>

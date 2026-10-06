@@ -1,0 +1,78 @@
+---
+import LogoWordmark from "./LogoWordmark.astro";
+import { withBase } from "../lib/paths";
+import { SPEC_HREF, NEW_TAB } from "../lib/links";
+
+const navLinks = [
+  { href: "/viewer", label: "Passport viewer" },
+  { href: "/for-vendors", label: "For software vendors" },
+  { href: "/about", label: "About" },
+];
+---
+<footer class="bg-navy-900 text-cream-50">
+  <div class="mx-auto max-w-6xl px-6 py-16 grid gap-10 md:grid-cols-3">
+    <div>
+      <div class="text-cream-50">
+        <LogoWordmark size="md" />
+      </div>
+      <p class="mt-4 text-cream-50/70 text-[15px] leading-relaxed max-w-xs">
+        An open file format for the records that travel with an animal.
+      </p>
+
+      <div class="mt-8">
+        <p class="text-cream-50/55 text-xs uppercase tracking-[0.14em] font-semibold">
+          Drafted by
+        </p>
+        <a
+          href="https://trackssoftware.com"
+          class="mt-3 inline-block hover:opacity-80 transition-opacity"
+          aria-label="Tracks Software"
+        >
+          <img
+            src={withBase("/tracks-logo.png")}
+            alt="Tracks Software"
+            width="200"
+            height="77"
+            class="h-12 w-auto"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      </div>
+    </div>
+
+    <nav aria-label="Footer">
+      <h2 class="text-cream-50/60 text-xs uppercase tracking-[0.12em] font-semibold">
+        Site
+      </h2>
+      <ul class="mt-4 space-y-2 text-[15px]">
+        {navLinks.map((link) => (
+          <li>
+            <a href={withBase(link.href)} class="text-cream-50/85 hover:text-cream-50 transition-colors">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="text-cream-50/60 text-xs uppercase tracking-[0.12em] font-semibold">
+        Contact and specification
+      </h2>
+      <ul class="mt-4 space-y-2 text-[15px]">
+        <li>
+          <a href={withBase("/contact")} class="text-cream-50/85 hover:text-cream-50 transition-colors">
+            Contact us
+          </a>
+        </li>
+        <li>
+          <a href={SPEC_HREF} {...NEW_TAB} class="text-cream-50/85 hover:text-cream-50 transition-colors">
+            Specification on GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</footer>

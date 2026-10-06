@@ -1,0 +1,68 @@
+---
+type Background = "cream-50" | "cream-100" | "teal-50" | "amber-50" | "navy-900" | "white";
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  background?: Background;
+  narrow?: boolean;
+  id?: string;
+  /** Compact vertical padding for sub-sections inside a page. */
+  compact?: boolean;
+  /** No top padding - the section continues the page header above it rather than starting a new block. */
+  flushTop?: boolean;
+  /** A hairline at the top, for a section that follows another of the same background.
+   *  The top padding moves below the line, so the line sits midway between the two. */
+  divider?: boolean;
+}
+
+const {
+  eyebrow,
+  heading,
+  background = "cream-50",
+  narrow = false,
+  id,
+  compact = false,
+  flushTop = false,
+  divider = false,
+} = Astro.props;
+
+const bgClass: Record<Background, string> = {
+  "cream-50": "bg-cream-50 text-ink-900",
+  "cream-100": "bg-cream-100 text-ink-900",
+  "teal-50": "bg-teal-50 text-ink-900",
+  "amber-50": "bg-amber-50 text-ink-900",
+  "navy-900": "bg-navy-900 text-cream-50",
+  white: "bg-white text-ink-900",
+};
+
+/* flushTop pulls the section up into the page header's bottom padding, so its first
+   paragraph sits a paragraph's distance below the header's lede. */
+const top = compact ? "pt-10 md:pt-14" : "pt-16 md:pt-24";
+const bottom = compact ? "pb-10 md:pb-14" : "pb-16 md:pb-24";
+const padding = flushTop ? `-mt-4 md:-mt-8 ${bottom}` : divider ? bottom : `${top} ${bottom}`;
+const widthClass = narrow ? "max-w-3xl" : "max-w-6xl";
+const headingColor = background === "navy-900" ? "text-cream-50" : "text-navy-900";
+---
+<section id={id} class={`${bgClass[background]} ${padding}`}>
+  <div class={`mx-auto ${widthClass} px-6`}>
+    <div class={divider ? `border-t border-rule-200 ${top}` : ""}>
+    {eyebrow && (
+      <p class="text-xs font-semibold tracking-[0.14em] uppercase text-teal-700">
+        {eyebrow}
+      </p>
+    )}
+    {heading && (
+      <h2
+        class={`${headingColor} mt-3 font-serif text-[clamp(1.8rem,3.2vw,2.4rem)] leading-tight tracking-tight`}
+        style="font-variation-settings: 'opsz' 32;"
+      >
+        {heading}
+      </h2>
+    )}
+    <div class={(eyebrow || heading) ? "mt-8" : ""}>
+      <slot />
+    </div>
+    </div>
+  </div>
+</section>

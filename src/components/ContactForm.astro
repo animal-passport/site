@@ -1,0 +1,166 @@
+---
+/**
+ * The site's one way to reach us - there is no public email address.
+ *
+ * Set at build time:
+ *  - PUBLIC_CONTACT_ENDPOINT - where the form posts: the contact endpoint on
+ *    resources.trackssoftware.com (POST /api/animal-passport/contact), which sends the
+ *    message by Mailgun to a recipient fixed on that server (support@trackssoftware.com).
+ *  - PUBLIC_TURNSTILE_SITE_KEY - optional. The Cloudflare Turnstile widget's site key, set
+ *    together with TURNSTILE_SECRET_KEY on the server if spam ever gets through. Left empty,
+ *    no widget is shown and the server skips the check.
+ *
+ * The server also checks this site's origin, the hidden field below, the time taken to fill
+ * the form (elapsed_ms) and a per-address and daily rate limit. Until the endpoint is set the
+ * form says so instead of pretending to send.
+ */
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT || "";
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "";
+
+const field =
+  "mt-1 block w-full rounded-lg border border-rule-200 bg-cream-50 px-4 py-2.5 text-ink-900 placeholder:text-muted-500 focus:border-teal-700";
+const label = "block text-[15px] font-medium text-navy-900";
+
+/** Who is writing. Nothing is pre-selected, so the answer is a real one. */
+const roles = [
+  { value: "holder", label: "At a zoo, aquarium or other animal holder" },
+  { value: "vendor", label: "Building records software" },
+  { value: "other", label: "Something else" },
+];
+---
+<form
+  id="contact-form"
+  method="POST"
+  action={endpoint || undefined}
+  data-endpoint={endpoint}
+  class="space-y-5"
+  novalidate
+>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label for="cf-name" class={label}>Name</label>
+      <input id="cf-name" name="name" type="text" required maxlength="120" autocomplete="name" class={field} />
+    </div>
+    <div>
+      <label for="cf-email" class={label}>Email</label>
+      <input id="cf-email" name="email" type="email" required maxlength="254" autocomplete="email" class={field} />
+    </div>
+  </div>
+
+  <div>
+    <label for="cf-org" class={label}>Organization <span class="font-normal text-muted-500">(optional)</span></label>
+    <input id="cf-org" name="organization" type="text" maxlength="200" autocomplete="organization" class={field} />
+  </div>
+
+  <fieldset>
+    <legend class={label}>You are</legend>
+    <div class="mt-2 flex flex-col gap-2">
+      {roles.map((r) => (
+        <label class="inline-flex items-center gap-2 text-navy-700 cursor-pointer">
+          <input type="radio" name="role" value={r.value} required class="size-4 accent-teal-700" />
+          {r.label}
+        </label>
+      ))}
+    </div>
+  </fieldset>
+
+  <div>
+    <label for="cf-message" class={label}>Message</label>
+    <textarea id="cf-message" name="message" rows="6" required minlength="10" maxlength="5000" class={field}></textarea>
+  </div>
+
+  {/* Honeypot - invisible to people, filled in by bots. */}
+  <div class="sr-only" aria-hidden="true">
+    <label for="cf-company">Leave this empty</label>
+    <input id="cf-company" type="text" name="company" tabindex={-1} autocomplete="off" />
+  </div>
+
+  <input type="hidden" name="elapsed_ms" value="0" />
+
+  {turnstileSiteKey && <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>}
+
+  <div class="flex flex-wrap items-center gap-4">
+    <button
+      type="submit"
+      class="rounded-full bg-teal-700 text-cream-50 px-6 py-3 font-medium hover:bg-teal-600 transition-colors disabled:opacity-60"
+    >
+      Send
+    </button>
+    <p data-cf-status class="text-[15px] text-navy-700" role="status" aria-live="polite"></p>
+  </div>
+
+  <p class="text-[13px] text-muted-500">
+    Your details are used only to reply to your message.{turnstileSiteKey && " The form is protected by Cloudflare Turnstile."}
+  </p>
+</form>
+
+{turnstileSiteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  if (form) {
+    const status = form.querySelector<HTMLElement>("[data-cf-status]")!;
+    const button = form.querySelector<HTMLButtonElement>("button[type=submit]")!;
+    const elapsed = form.querySelector<HTMLInputElement>("input[name=elapsed_ms]")!;
+    const endpoint = form.dataset.endpoint ?? "";
+    const loadedAt = Date.now();
+
+    // A page's call to action can pre-select who is writing: /contact?role=vendor
+    const role = new URLSearchParams(location.search).get("role");
+    const roleRadio = [...form.querySelectorAll<HTMLInputElement>("input[name=role]")].find((r) => r.value === role);
+    if (roleRadio) roleRadio.checked = true;
+
+    const showError = (text: string) => {
+      status.classList.add("text-amber-700");
+      status.textContent = text;
+    };
+
+    /** The server's own explanation where it gives one: the first validation error, or its message. */
+    const errorText = async (res: Response): Promise<string> => {
+      try {
+        const body = await res.json();
+        const first = body?.errors ? Object.values(body.errors as Record<string, string[]>)[0]?.[0] : undefined;
+        if (first) return first;
+        if (body?.message) return body.message;
+      } catch {
+        // not JSON - fall through
+      }
+      return "The message could not be sent. Please try again shortly.";
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.classList.remove("text-amber-700");
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      if (!endpoint) {
+        showError("The contact form is not yet connected, so the message was not sent.");
+        return;
+      }
+      elapsed.value = String(Date.now() - loadedAt);
+      button.disabled = true;
+      status.textContent = "Sending…";
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        if (!res.ok) {
+          showError(await errorText(res));
+          return;
+        }
+        form.reset();
+        status.textContent = "Thank you. Your message has been sent, and we will reply by email.";
+      } catch {
+        showError("The message could not be sent. Please check your connection and try again.");
+      } finally {
+        button.disabled = false;
+        // A Turnstile token is single-use; get a fresh one for any further attempt.
+        (window as Window & { turnstile?: { reset: () => void } }).turnstile?.reset();
+      }
+    });
+  }
+</script>

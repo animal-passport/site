@@ -1,0 +1,29 @@
+---
+import { withBase } from "../lib/paths";
+
+interface Props {
+  href?: string;
+  size?: "sm" | "md" | "lg";
+}
+const { href = withBase("/"), size = "md" } = Astro.props;
+const sizeClass = {
+  sm: "text-[1rem]",
+  md: "text-[1.2rem]",
+  lg: "text-[1.5rem]",
+}[size];
+// Source Serif 4 opsz axis: 8 → 60. Map each rendered size to the matching optical master
+// so the wordmark renders crisp at UI scale instead of being shown through a display lens.
+const opsz = {
+  sm: 8,
+  md: 14,
+  lg: 18,
+}[size];
+---
+<a
+  href={href}
+  class={`font-serif ${sizeClass} font-medium tracking-tight text-current no-underline whitespace-nowrap hover:opacity-80 transition-opacity`}
+  style={`font-variation-settings: 'opsz' ${opsz};`}
+  aria-label="Animal Passport, home"
+>
+  Animal Passport
+</a>

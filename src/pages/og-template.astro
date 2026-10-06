@@ -1,0 +1,105 @@
+---
+import "../styles/global.css";
+import { withBase } from "../lib/paths";
+import FontFaces from "../components/FontFaces.astro";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>OG template</title>
+    <FontFaces />
+    <style>
+      html, body { margin: 0; padding: 0; }
+      astro-dev-toolbar { display: none !important; }
+      .og {
+        width: 1200px;
+        height: 630px;
+        background: var(--color-navy-900);
+        color: var(--color-cream-50);
+        font-family: var(--font-sans);
+        position: relative;
+        overflow: hidden;
+        padding: 80px 100px;
+        box-sizing: border-box;
+      }
+      .rule {
+        width: 56px;
+        height: 5px;
+        background: var(--color-teal-600);
+        margin-bottom: 36px;
+      }
+      .eyebrow {
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: 0.16em;
+        color: var(--color-teal-600);
+        text-transform: uppercase;
+        margin: 0 0 38px 0;
+      }
+      .wordmark {
+        font-family: var(--font-serif);
+        font-size: 144px;
+        font-weight: 500;
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+        margin: 0 0 30px 0;
+        font-variation-settings: "opsz" 60;
+      }
+      .tagline {
+        font-size: 40px;
+        line-height: 1.25;
+        font-weight: 400;
+        color: var(--color-cream-50);
+        opacity: 1;
+        margin: 0;
+        max-width: 960px;
+      }
+      .footer {
+        position: absolute;
+        left: 100px;
+        right: 100px;
+        bottom: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 26px;
+        font-weight: 500;
+        color: var(--color-cream-50);
+        opacity: 0.92;
+      }
+      .footer .url { letter-spacing: 0.01em; }
+      .footer .steward {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .footer .steward-label {
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 700;
+        opacity: 1;
+      }
+      .footer .steward-logo {
+        height: 56px;
+        width: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="og">
+      <div class="rule"></div>
+      <p class="eyebrow">An open format for animal records</p>
+      <h1 class="wordmark">Animal Passport</h1>
+      <p class="tagline">Records that travel with the animal.</p>
+      <div class="footer">
+        <span class="url">animalpassport.org</span>
+        <div class="steward">
+          <span class="steward-label">Drafted by</span>
+          <img src={withBase("/tracks-logo.png")} alt="Tracks Software" class="steward-logo" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

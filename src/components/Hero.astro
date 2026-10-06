@@ -1,0 +1,59 @@
+---
+import { NEW_TAB, isExternal } from "../lib/links";
+
+interface Props {
+  eyebrow?: string;
+  primaryCta?: { href: string; label: string };
+  secondaryCta?: { href: string; label: string };
+}
+
+const { eyebrow, primaryCta, secondaryCta } = Astro.props;
+/** Links to other sites open in a new tab. */
+const tab = (href: string) => (isExternal(href) ? NEW_TAB : {});
+---
+<section class="relative bg-cream-50 pt-10 md:pt-20 pb-16 md:pb-28">
+  <div data-nav-sentinel class="absolute inset-x-0 top-0 h-px" aria-hidden="true"></div>
+  <div class="mx-auto max-w-6xl px-6 grid gap-12 md:grid-cols-12 items-center">
+    <div class="md:col-span-6">
+      {eyebrow && (
+        <p class="text-xs font-semibold tracking-[0.14em] uppercase text-teal-700">
+          {eyebrow}
+        </p>
+      )}
+      <h1
+        class="mt-5 font-serif text-navy-900 text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.05] tracking-tight"
+        style="font-variation-settings: 'opsz' 60;"
+      >
+        <slot name="headline" />
+      </h1>
+      <div class="mt-6 text-navy-700 text-[1.075rem] leading-relaxed max-w-2xl">
+        <slot name="subhead" />
+      </div>
+      {(primaryCta || secondaryCta) && (
+        <div class="mt-8 flex flex-wrap gap-3">
+          {primaryCta && (
+            <a
+              href={primaryCta.href}
+              {...tab(primaryCta.href)}
+              class="inline-flex items-center justify-center w-full sm:w-auto rounded-full bg-teal-700 text-cream-50 px-6 py-3 font-medium hover:bg-teal-600 transition-colors"
+            >
+              {primaryCta.label}
+            </a>
+          )}
+          {secondaryCta && (
+            <a
+              href={secondaryCta.href}
+              {...tab(secondaryCta.href)}
+              class="inline-flex items-center justify-center w-full sm:w-auto rounded-full border border-navy-700 text-navy-900 px-6 py-3 font-medium hover:bg-navy-900 hover:text-cream-50 transition-colors"
+            >
+              {secondaryCta.label}
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+    <div class="md:col-span-6">
+      <slot name="illustration" />
+    </div>
+  </div>
+</section>

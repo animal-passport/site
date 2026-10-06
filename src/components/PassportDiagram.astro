@@ -1,0 +1,194 @@
+---
+/**
+ * An open passport booklet. The left page is the data page - a photo of Pebble, the harbor
+ * seal from the public sample passports, a few of her details as labelled fields, and the two
+ * machine-readable lines every passport carries at the foot of the page. The right page holds
+ * stamps from her history (born at Tern Point in 2017, passport issued in 2026, held at
+ * Gullstone Bay since 2018), and index tabs on its edge name kinds of records the format carries.
+ * Every name and date is the invented one from public/examples/pebble.json, never a real
+ * institution.
+ *
+ * Shown about 440px wide on desktop, so no text is set below 8 units (about 8.4px there).
+ * Fewer fields and stamps than earlier versions, to make room for that. Mockups of this and
+ * the alternatives: _mockups/passport-refinement-mockups.html.
+ * Decorative - the page text provides the meaning.
+ */
+const sans = "Inter, ui-sans-serif, system-ui, sans-serif";
+const mono = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+
+const fields = [
+  { label: "NAME", value: "Pebble", x: 112, y: 95 },
+  { label: "SPECIES", value: "Harbor seal", x: 112, y: 125 },
+  { label: "BORN", value: "2017", x: 112, y: 155 },
+  { label: "HOLDER", value: "Gullstone Bay Aquarium", x: 36, y: 188 },
+];
+
+const tabs = [
+  { label: "Medical", fill: "#E8F1ED" },
+  { label: "Husbandry", fill: "#FBF1DC" },
+  { label: "Welfare", fill: "#E8F1ED" },
+];
+
+/* Pebble's harbor seal coat: dark spots and a few open rings, in the seal's own
+   100 x 125 drawing space. */
+const spots = [
+  [40, 25, 1.4], [47, 22.5, 0.9], [57, 24, 1.3], [64.5, 28.5, 1.1], [29, 34, 1.2], [72, 36, 1.4],
+  [24, 48, 1.1], [77, 51, 1], [24.5, 62, 1.2], [28, 82, 1.5], [72, 84, 1.3], [34, 97, 1.1],
+  [66, 95, 1.5], [18, 104, 1.6], [82, 104, 1.2], [10, 116, 1.4], [26, 114, 1], [74, 116, 1.6],
+  [90, 118, 1.2], [38, 121, 1.3], [60, 121, 1],
+];
+const rings = [[35, 29, 1.6], [20, 92, 1.8], [84, 94, 1.7], [48, 112, 1.8]];
+
+/* Head, neck and shoulders as one shape: a seal has almost no neck. */
+const sealBody =
+  "M50 18 C67 18 80 31 80 49 C80 60 77 67 77 74 C77 86 88 98 100 108 L100 125 L0 125 L0 108 " +
+  "C12 98 23 86 23 74 C23 67 20 60 20 49 C20 31 33 18 50 18 Z";
+---
+<svg
+  viewBox="0 0 420 320"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="An open passport booklet: a data page with a harbor seal's photo and details, and a page of entry stamps."
+  class="w-full h-auto max-w-md mx-auto"
+>
+  <defs>
+    <linearGradient id="pp-spine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1A2E44" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#1A2E44" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#1A2E44" stop-opacity="0"/>
+    </linearGradient>
+    {/* Darker back fading to a paler front. */}
+    <linearGradient id="pp-coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#77808A"/>
+      <stop offset="0.55" stop-color="#8E979F"/>
+      <stop offset="1" stop-color="#A9B1B7"/>
+    </linearGradient>
+    <radialGradient id="pp-throat">
+      <stop offset="0" stop-color="#C3CACE" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#C3CACE" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="pp-photo">
+      <rect x="36" y="84" width="64" height="80" rx="3"/>
+    </clipPath>
+    <clipPath id="pp-seal">
+      <path d={sealBody}/>
+    </clipPath>
+  </defs>
+
+  {/* Ground shadow */}
+  <ellipse cx="210" cy="304" rx="180" ry="8" fill="#1A2E44" opacity="0.08"/>
+
+  <g transform="rotate(-2 210 160)" font-family={sans}>
+    {/* Cover, showing round the open pages */}
+    <rect x="12" y="34" width="396" height="256" rx="12" fill="#1A2E44"/>
+
+    {/* Index tabs on the right page's edge */}
+    <g font-size="9" font-weight="600" fill="#1A2E44">
+      {tabs.map((t, i) => (
+        <g>
+          <rect x="392" y={58 + i * 76} width="20" height="68" rx="4" fill={t.fill} stroke="#1A2E44" stroke-opacity="0.12"/>
+          <text transform={`translate(399 ${92 + i * 76}) rotate(90)`} text-anchor="middle">{t.label}</text>
+        </g>
+      ))}
+    </g>
+
+    {/* Pages */}
+    <rect x="22" y="42" width="188" height="240" rx="5" fill="#FAFAF6"/>
+    <rect x="210" y="42" width="188" height="240" rx="5" fill="#F4F1E8"/>
+    <rect x="194" y="42" width="32" height="240" fill="url(#pp-spine)"/>
+
+    {/* ---- Data page ---- */}
+    <text x="36" y="66" font-size="10.5" font-weight="700" letter-spacing="0.14em" fill="#0F6E56">ANIMAL PASSPORT</text>
+    <rect x="36" y="73" width="160" height="1" fill="#0F6E56" opacity="0.35"/>
+
+    {/* Photo - Pebble, a harbor seal, facing the camera */}
+    <g clip-path="url(#pp-photo)">
+      <g transform="translate(36 84) scale(0.64)">
+        <rect width="100" height="125" fill="#E8F1ED"/>
+        <path d={sealBody} fill="url(#pp-coat)"/>
+        <g clip-path="url(#pp-seal)">
+          {/* paler throat carries the head down into the chest */}
+          <ellipse cx="50" cy="92" rx="24" ry="22" fill="url(#pp-throat)"/>
+          <g fill="#68717B" opacity="0.75">
+            {spots.map(([cx, cy, r]) => <circle cx={cx} cy={cy} r={r}/>)}
+          </g>
+          <g fill="none" stroke="#68717B" stroke-width="0.7" opacity="0.7">
+            {rings.map(([cx, cy, r]) => <circle cx={cx} cy={cy} r={r}/>)}
+          </g>
+        </g>
+        {/* muzzle and whisker pads */}
+        <ellipse cx="50" cy="62" rx="15.5" ry="11.5" fill="#99A2A9"/>
+        <ellipse cx="43.5" cy="65.5" rx="8.2" ry="6.6" fill="#B7BFC4"/>
+        <ellipse cx="56.5" cy="65.5" rx="8.2" ry="6.6" fill="#B7BFC4"/>
+        {/* V-shaped nostrils, the harbor seal's tell */}
+        <g stroke="#1A2E44" stroke-width="2.3" stroke-linecap="round" fill="none">
+          <path d="M44.5 55.2 Q46 59.2 48.8 60.8"/>
+          <path d="M55.5 55.2 Q54 59.2 51.2 60.8"/>
+        </g>
+        <path d="M50 61.5 L50 67" stroke="#5C6470" stroke-width="0.8"/>
+        <path d="M45.5 71.5 Q50 74 54.5 71.5" stroke="#3A4652" stroke-width="1" fill="none" stroke-linecap="round"/>
+        {/* eyes */}
+        <ellipse cx="37" cy="45" rx="7.6" ry="7.8" fill="#6E7780" opacity="0.55"/>
+        <ellipse cx="63" cy="45" rx="7.6" ry="7.8" fill="#6E7780" opacity="0.55"/>
+        <ellipse cx="37" cy="45" rx="6" ry="6.4" fill="#15212F"/>
+        <ellipse cx="63" cy="45" rx="6" ry="6.4" fill="#15212F"/>
+        <circle cx="35.2" cy="42.8" r="1.9" fill="#FAFAF6"/>
+        <circle cx="61.2" cy="42.8" r="1.9" fill="#FAFAF6"/>
+        <circle cx="38.8" cy="47.6" r="0.7" fill="#FAFAF6" opacity="0.6"/>
+        <circle cx="64.8" cy="47.6" r="0.7" fill="#FAFAF6" opacity="0.6"/>
+        {/* pale whiskers, and the short ones over the eyes */}
+        <g stroke="#D5DBDF" stroke-width="0.7" stroke-linecap="round" fill="none">
+          <path d="M40 64 L20 59"/><path d="M39 66 L19 66"/><path d="M40 68 L21 73"/><path d="M42 70 L25 78"/>
+          <path d="M60 64 L80 59"/><path d="M61 66 L81 66"/><path d="M60 68 L79 73"/><path d="M58 70 L75 78"/>
+        </g>
+        <g stroke="#D5DBDF" stroke-width="0.6" stroke-linecap="round" opacity="0.6">
+          <path d="M33 37.5 L31 33"/><path d="M36 36.5 L35.3 32"/><path d="M67 37.5 L69 33"/><path d="M64 36.5 L64.7 32"/>
+        </g>
+      </g>
+    </g>
+    <rect x="36" y="84" width="64" height="80" rx="3" fill="none" stroke="#0F6E56" stroke-width="1.2"/>
+
+    {/* Fields */}
+    {fields.map((f) => (
+      <g>
+        <text x={f.x} y={f.y} font-size="8" font-weight="600" letter-spacing="0.1em" fill="#5C6470">{f.label}</text>
+        <text x={f.x} y={f.y + 13} font-size="11.5" font-weight="500" fill="#1A2E44">{f.value}</text>
+      </g>
+    ))}
+
+    {/* Machine-readable zone */}
+    <rect x="30" y="216" width="172" height="48" rx="2" fill="#EEEAE0"/>
+    <g font-family={mono} font-size="8.5" font-weight="600" fill="#1A2E44" opacity="0.85">
+      <text x="36" y="235" textLength="160" lengthAdjust="spacing">AP&lt;GULLSTON&lt;&lt;PEBBLE&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</text>
+      <text x="36" y="254" textLength="160" lengthAdjust="spacing">PV1702&lt;&lt;F&lt;170604&lt;&lt;V0&lt;1&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</text>
+    </g>
+
+    {/* ---- Stamps page ---- */}
+    <text x="224" y="66" font-size="8" font-weight="600" letter-spacing="0.14em" fill="#5C6470">HISTORY</text>
+    <rect x="224" y="73" width="160" height="1" fill="#1A2E44" opacity="0.12"/>
+
+    {/* Birth, at Tern Point */}
+    <g transform="translate(228 90) rotate(-6)" fill="#2C4866">
+      <rect x="0" y="0" width="116" height="48" rx="3" fill="none" stroke="#2C4866" stroke-width="1.6" opacity="0.8"/>
+      <rect x="3" y="3" width="110" height="42" rx="2" fill="none" stroke="#2C4866" stroke-width="0.6" opacity="0.6"/>
+      <text x="58" y="22" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="0.08em" opacity="0.9">TERN POINT</text>
+      <text x="58" y="37" text-anchor="middle" font-size="8.5" font-weight="600" letter-spacing="0.12em" opacity="0.9">BORN · 2017</text>
+    </g>
+
+    {/* Issuing stamp - circular */}
+    <g transform="translate(298 130) rotate(-12)" fill="#BA7517">
+      <circle cx="36" cy="36" r="34" fill="none" stroke="#BA7517" stroke-width="2.2" stroke-dasharray="2.4 2.4" opacity="0.85"/>
+      <circle cx="36" cy="36" r="25" fill="none" stroke="#BA7517" stroke-width="1" opacity="0.85"/>
+      <text x="36" y="37" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="0.06em">ISSUED</text>
+      <text x="36" y="49" text-anchor="middle" font-size="8.5" font-weight="600" letter-spacing="0.1em">2026</text>
+    </g>
+
+    {/* Arrival at the current holder */}
+    <g transform="translate(230 210) rotate(4)" fill="#0F6E56">
+      <rect x="0" y="0" width="136" height="54" rx="4" fill="none" stroke="#0F6E56" stroke-width="1.6" opacity="0.8"/>
+      <text x="68" y="17" text-anchor="middle" font-size="8.5" font-weight="600" letter-spacing="0.16em" opacity="0.9">ARRIVED</text>
+      <text x="68" y="34" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="0.05em" opacity="0.9">GULLSTONE BAY</text>
+      <text x="68" y="47" text-anchor="middle" font-size="8.5" font-weight="600" letter-spacing="0.12em" opacity="0.9">JULY 2018</text>
+    </g>
+  </g>
+</svg>

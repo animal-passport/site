@@ -1,0 +1,250 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import Callout from "../components/Callout.astro";
+import PassportDiagram from "../components/PassportDiagram.astro";
+import { withBase } from "../lib/paths";
+import { SPEC_HREF as specHref, NEW_TAB } from "../lib/links";
+import pebble from "../../public/examples/pebble.json";
+
+/** One record from the public sample, shortened, so the page shows the format itself.
+ *  Read from the sample at build time, so the excerpt never drifts from the file. */
+const reaction = pebble.animalPassport.records.drugReactions[0];
+const excerpt = JSON.stringify(
+  {
+    drugReactions: [
+      {
+        originRef: reaction.originRef,
+        recordDateTime: reaction.recordDateTime,
+        drug: { name: reaction.drug.name },
+        reactionLevel: reaction.reactionLevel,
+        comments: reaction.comments,
+        audit: reaction.audit,
+      },
+    ],
+  },
+  null,
+  2,
+);
+
+const steps = [
+  {
+    n: "1",
+    title: "Export",
+    body: "The sending facility's records system creates a passport containing the record types the facility chooses to share: a single zip file holding passport.json and the media files the records refer to.",
+  },
+  {
+    n: "2",
+    title: "Transfer",
+    body: "The file is sent by any existing means, such as email, a shared drive or a transfer portal. The format places no requirements on how it is delivered.",
+  },
+  {
+    n: "3",
+    title: "Import",
+    body: "The receiving system imports the records into its own database. Each record carries a stable reference, which prevents duplicate imports and preserves the identity of records from earlier holders.",
+  },
+  {
+    n: "4",
+    title: "View",
+    body: "Where the receiving system cannot yet import a passport, the free passport viewer displays the complete record in a web browser without uploading it, and can save a readable copy as a PDF.",
+  },
+];
+
+const contents = [
+  { type: "Identity", body: "Species and taxonomic identifiers, sex history, birth or hatch date, rearing, identifiers with the primary one marked, and parents." },
+  { type: "Medical", body: "Cases and clinical notes, prescriptions and doses, laboratory results with reference ranges, anesthesia records, medical alerts, chronic conditions, drug reactions and necropsy reports." },
+  { type: "Husbandry", body: "Diets by meal, feeding records, enrichment, measurements with the animal's own ranges, physiological readings and contraception." },
+  { type: "Welfare and behavior", body: "Welfare assessments with each question and answer, action plans, observations and animal notes." },
+  { type: "Training", body: "Trained behaviors and their progress, training sessions, and the trainers involved." },
+  { type: "Transaction history", body: "Acquisitions, dispositions and moves, with the holder and owner after each." },
+  { type: "Media", body: "Photographs, images and documents, each linked to the record it belongs to, with a digital fingerprint recorded in the data file so a receiving system can confirm the file is unchanged." },
+  { type: "Provenance", body: "Who entered each record, where and when, and which facility exported the passport." },
+];
+
+const principles = [
+  {
+    title: "Open",
+    body: "Openly licensed and free to implement, with no fees, royalties or patent restrictions. The specification is developed in a public repository.",
+  },
+  {
+    title: "Vendor-neutral",
+    body: "The format contains no vendor-specific fields and requires no connection to any external service. Any system that can read and write JSON can implement it. Values specific to one system can be carried in a separate, namespaced extensions block.",
+  },
+  {
+    title: "Versioned, with a defined 1.0",
+    body: "Version 0.1 remains open to change while other systems review and implement it. Version 1.0 will be declared when a second, independent records system reads or writes passports and the review group has approved the specification. From 1.0, changes within a major version will be additive only: readers ignore fields they do not recognize, older readers continue to work, and newer readers accept older files.",
+  },
+  {
+    title: "Sender-controlled",
+    body: "A passport contains only the record types the sending facility chooses to include. No record is shared without that decision.",
+  },
+  {
+    title: "Structured data",
+    body: "Quantities include their units, ratings include both the score and its label, and dates include their time zone offset, so the receiving system can use the values directly rather than re-enter them.",
+  },
+  {
+    title: "Persistent record identity",
+    body: "Each record keeps the reference assigned by the system that first recorded it. Records from a previous holder arrive identified as that holder's records and are not duplicated when the animal moves again.",
+  },
+  {
+    title: "Readable without an importer",
+    body: "A passport consists of one data file and its media files. A package may also include a short human-readable summary, and the passport viewer can display any passport. Both are conveniences; the data file is the authoritative record.",
+  },
+];
+---
+<BaseLayout
+  title="Animal Passport — an open format for the records that travel with an animal"
+  description="AZA accreditation standard 1.4.12 requires an animal's complete records to accompany it on transfer, and the receiving facility needs them to continue its care. Animal Passport is an open file format that allows any records system to send and receive them."
+>
+  <Hero
+    eyebrow="An open format for animal records"
+    primaryCta={{ href: withBase("/viewer"), label: "Open the passport viewer" }}
+    secondaryCta={{ href: specHref, label: "Specification on GitHub" }}
+  >
+    <Fragment slot="headline">Records that travel with the animal.</Fragment>
+    <Fragment slot="subhead">
+      When an animal moves between facilities, its records must move with it. Accreditation requires it, and the animal's care depends on it. Animal Passport is an open file format that allows any records system to send an animal's medical, husbandry, welfare, diet, training and behavioral records, and any other system to receive them.
+    </Fragment>
+    <Fragment slot="illustration">
+      <img
+        src={withBase("/og-image.png")}
+        alt="Animal Passport - an open format for animal records."
+        width="1200"
+        height="630"
+        class="w-full h-auto rounded-lg shadow-sm ring-1 ring-navy-900/5"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </Fragment>
+  </Hero>
+
+  <Section divider eyebrow="Why it matters" heading="Required for accreditation. Needed for care">
+    <div class="grid gap-10 md:grid-cols-2">
+      <div>
+        <h3 class="font-serif text-xl font-medium text-navy-900" style="font-variation-settings: 'opsz' 14;">
+          The requirement
+        </h3>
+        <p class="mt-3 text-navy-700 text-[1.05rem] leading-relaxed">
+          AZA accreditation standard 1.4.12 requires that when an animal is transferred, all of its data in the sending institution's records system, <em>including historical data from previous holding institutions</em>, accompany it so that the receiving institution can provide the best possible care. The standard prefers a computer-readable format and does not favor any particular records system.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-serif text-xl font-medium text-navy-900" style="font-variation-settings: 'opsz' 14;">
+          The need
+        </h3>
+        <p class="mt-3 text-navy-700 text-[1.05rem] leading-relaxed">
+          Accredited or not, a receiving facility needs an animal's history from the day it arrives: current medications and known drug reactions, recent procedures and anesthesia, diet, behavioral baselines, training and welfare context. Continuity of care matters most in the first weeks after a transfer, which is when missing information does the most harm.
+        </p>
+      </div>
+    </div>
+    <p class="mt-10 max-w-3xl text-navy-700 text-[1.05rem] leading-relaxed">
+      Current practice meets neither well. Transfers rely on exported PDFs, spreadsheets and email; the receiving team re-enters what it can, and some information arrives late or not at all. What is missing is a shared format that every records system can write and read, and no single vendor can create one alone.
+    </p>
+  </Section>
+
+  <Section divider id="how-it-works" eyebrow="How it works" heading="From export to import">
+    <ol class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((s) => (
+        <li class="fade-up bg-cream-100 rounded-lg p-6 border border-rule-200">
+          <div class="font-serif text-3xl text-teal-700" style="font-variation-settings: 'opsz' 24;">
+            {s.n}
+          </div>
+          <h3 class="mt-3 font-serif text-xl font-medium text-navy-900" style="font-variation-settings: 'opsz' 14;">
+            {s.title}
+          </h3>
+          <p class="mt-2 text-navy-700 leading-relaxed text-[15px]">{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  </Section>
+
+  <Section background="cream-100" eyebrow="Contents" id="contents">
+    {/* Heading, drawing, list: stacked in that order below lg, so the drawing comes before
+        the list on phones. From lg the drawing moves to its own column beside both. */}
+    <div class="grid gap-x-12 gap-y-8 lg:grid-cols-12 items-start">
+      <h2 class="lg:col-span-7 font-serif text-navy-900 text-[clamp(1.8rem,3.2vw,2.4rem)] leading-tight tracking-tight" style="font-variation-settings: 'opsz' 32;">
+        The records that accompany the animal
+      </h2>
+      <div class="lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2">
+        <PassportDiagram />
+      </div>
+      <dl class="lg:col-span-7 grid gap-x-10 gap-y-6 sm:grid-cols-2 text-navy-700 leading-relaxed">
+        {contents.map((c) => (
+          <div>
+            <dt class="font-medium text-navy-900">{c.type}</dt>
+            <dd class="mt-1 text-[15.5px]">{c.body}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <div class="mt-16 grid gap-8 lg:grid-cols-12 items-start">
+      <div class="lg:col-span-4">
+        <h3 class="font-serif text-xl font-medium text-navy-900" style="font-variation-settings: 'opsz' 14;">
+          From Pebble's passport
+        </h3>
+        <p class="mt-3 text-navy-700 leading-relaxed text-[15.5px]">
+          A drug reaction record from the sample passport of Pebble, a fictitious harbor seal. The date includes a time zone, <code class="font-mono text-[0.9em]">originRef</code> maintains the record's identity through later transfers, and <code class="font-mono text-[0.9em]">audit</code> records who entered it.
+        </p>
+        <p class="mt-4">
+          <a href={withBase("/viewer?sample=pebble")} class="link font-medium">Open Pebble's passport in the viewer →</a>
+        </p>
+      </div>
+      <pre class="lg:col-span-8 whitespace-pre-wrap break-words rounded-lg bg-navy-900 text-cream-50 p-6 font-mono text-[13.5px] leading-relaxed"><code>{excerpt}</code></pre>
+    </div>
+  </Section>
+
+  <Section eyebrow="Design principles" heading="How the format is designed">
+    <ul class="grid gap-x-10 gap-y-8 md:grid-cols-2">
+      {principles.map((p) => (
+        <li class="border-l-4 border-teal-700 pl-5">
+          <h3 class="font-serif text-xl font-medium text-navy-900" style="font-variation-settings: 'opsz' 14;">
+            {p.title}
+          </h3>
+          <p class="mt-2 text-navy-700 leading-relaxed">{p.body}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-10 text-navy-700 leading-relaxed">
+      The specification is being developed publicly at <a href={specHref} {...NEW_TAB} class="link font-medium">github.com/animal-passport/spec</a>. Two sample passports can be opened in the <a href={withBase("/viewer")} class="link font-medium">passport viewer</a>.
+    </p>
+  </Section>
+
+  <Section narrow compact>
+    <Callout variant="amber" title="What Animal Passport is not">
+      <p class="mt-1">
+        Animal Passport is not a records system, a live synchronization between facilities or a backup. It is a snapshot of the records that should accompany an animal at the time of its transfer.
+      </p>
+      <p class="mt-3">
+        It is also not a standard for the values within a record, such as diagnosis names, observation types or feed items. It defines how records are structured for transfer, and each value arrives as the sending system recorded it.
+      </p>
+    </Callout>
+  </Section>
+
+  <Section divider eyebrow="Who is behind it" narrow>
+    <div class="space-y-5 text-navy-700 text-[1.05rem] leading-relaxed">
+      <p>
+        The initial draft was written by Tracks Software. The format is developed publicly under its own GitHub organization, with the intention of transferring stewardship to an independent body as other systems adopt it.
+      </p>
+      <p>
+        <a href={withBase("/about")} class="link font-medium">About the project →</a>
+      </p>
+    </div>
+  </Section>
+
+  <Section background="teal-50" narrow>
+    <div class="text-center">
+      <h2 class="font-serif text-navy-900 text-[clamp(1.6rem,3vw,2rem)] tracking-tight" style="font-variation-settings: 'opsz' 32;">
+        Help shape the format
+      </h2>
+      <p class="mt-3 text-navy-700 leading-relaxed max-w-xl mx-auto">
+        Follow the specification on GitHub, or tell us how transfers work at your facility. Registrars, veterinarians, animal care staff and software developers each have a unique perspective and the format should reflect each one.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href={withBase("/contact")} class="w-full sm:w-auto text-center rounded-full bg-teal-700 text-cream-50 px-6 py-3 font-medium hover:bg-teal-600 transition-colors">Contact us</a>
+        <a href={specHref} {...NEW_TAB} class="w-full sm:w-auto text-center rounded-full border border-teal-700 text-teal-700 px-6 py-3 font-medium hover:bg-cream-50 transition-colors">Specification on GitHub</a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

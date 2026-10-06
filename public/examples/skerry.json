@@ -1,0 +1,209 @@
+{
+  "$schema": "https://animalpassport.org/schema/0.1/passport.schema.json",
+  "_note": "PUBLIC SAMPLE - invented data, the companion to pebble.json. Skerry is Pebble's dam; she died at Gullstone Bay Aquarium in 2023, and the owner asked for her death and necropsy records. Only those two record types were chosen; the necropsy photo travels with the necropsy, so media is listed too. It exists to show the fields only a dead animal carries - the transaction death block and the necropsy.",
+  "animalPassport": {
+    "manifest": {
+      "specVersion": "0.1",
+      "transferBatchKey": "8d2e4b90-1c3a-4f6e-b7d5-02a9c8e1f364",
+      "exportedDateTime": "2026-09-28T10:21:05-07:00",
+      "originSoftware": {
+        "name": "examplerecords",
+        "version": "3.2.1"
+      },
+      "holderFacility": {
+        "institutionCode": "900101",
+        "mnemonic": "GULLSTON",
+        "name": "Gullstone Bay Aquarium"
+      },
+      "ownerFacility": {
+        "institutionCode": "900103",
+        "mnemonic": "CPTRUST",
+        "name": "Coastal Pinniped Trust"
+      },
+      "contents": [
+        {
+          "recordType": "transactions",
+          "recordCount": 2
+        },
+        {
+          "recordType": "media",
+          "recordCount": 1
+        },
+        {
+          "recordType": "necropsies",
+          "recordCount": 1
+        }
+      ]
+    },
+    "core": {
+      "gan": "SAMPLE-GAN-0002",
+      "localId": "PV-11-05",
+      "taxonomy": {
+        "common": "Harbor Seal",
+        "scientificName": "Phoca vitulina",
+        "rank": "Species",
+        "taxonIds": [
+          {
+            "scheme": "itis",
+            "value": "180649"
+          },
+          {
+            "scheme": "gbif",
+            "value": "2434793"
+          }
+        ],
+        "extensions": {
+          "examplerecords": {
+            "taxonKey": "PHOVIT"
+          }
+        }
+      },
+      "currentSex": "Female",
+      "birth": {
+        "birthDate": "2011-06-01",
+        "birthDateEarliest": "2011-05-15",
+        "birthDateLatest": "2011-06-30",
+        "birthType": "Wild born",
+        "hybrid": "Not a hybrid"
+      },
+      "animalType": "individual",
+      "lifeCycle": {
+        "current": "dead",
+        "initial": "live"
+      },
+      "population": "0.1.0"
+    },
+    "records": {
+      "transactions": [
+        {
+          "originRef": "transaction.22610",
+          "recordDateTime": "2023-11-18T07:20:00-08:00",
+          "transactionType": {
+            "description": "Death",
+            "category": "Death"
+          },
+          "enclosureName": "Harbor Habitat",
+          "population": [
+            {
+              "originRef": "transactionPopulation.15988",
+              "lifeStage": "Adult",
+              "population": "0.1.0"
+            }
+          ],
+          "comments": "Euthanized after a sudden decline; the prognosis was hopeless.",
+          "death": {
+            "submittedDateTime": "2023-11-20T16:00:00-08:00",
+            "submittedBy": "Okafor, Grace",
+            "history": "Weight loss over six weeks and reduced appetite; treated for suspected gastritis.",
+            "carcassCondition": "Fresh",
+            "deathType": "Euthanasia",
+            "euthanasiaMethod": "Pentobarbital overdose",
+            "ageAtDeathDays": "4553",
+            "ageCategory": "Adult",
+            "inZooSinceDate": "2018-07-15",
+            "acquisitionTransactionRef": "transaction.20429",
+            "acquisitionInstitution": {
+              "institutionCode": "900102",
+              "mnemonic": "TERNPT",
+              "name": "Tern Point Marine Rescue"
+            },
+            "environmentNote": "Water quality within limits for the prior 30 days.",
+            "exhibitStatus": "Exhibit",
+            "medicalStatus": "In Treatment",
+            "deathCode": "EUT-02"
+          },
+          "ownerAfterTransaction": {
+            "institutionCode": "900103",
+            "mnemonic": "CPTRUST",
+            "name": "Coastal Pinniped Trust"
+          },
+          "holderAfterTransaction": {
+            "institutionCode": "900101",
+            "mnemonic": "GULLSTON",
+            "name": "Gullstone Bay Aquarium"
+          },
+          "audit": "2023-11-18T08:05:31-08:00 Petrov, Anya"
+        },
+        {
+          "originRef": "transaction.20429",
+          "recordDateTime": "2018-07-15T15:10:00-07:00",
+          "transactionType": {
+            "description": "Loan Acquisition",
+            "category": "Loan Transaction"
+          },
+          "enclosureName": "Quarantine Pool 1",
+          "population": [
+            {
+              "originRef": "transactionPopulation.14528",
+              "lifeStage": "Adult",
+              "population": "0.1.0"
+            }
+          ],
+          "comments": "Arrived from Tern Point with her pup PV-17-02.",
+          "ownerAfterTransaction": {
+            "institutionCode": "900103",
+            "mnemonic": "CPTRUST",
+            "name": "Coastal Pinniped Trust"
+          },
+          "holderAfterTransaction": {
+            "institutionCode": "900101",
+            "mnemonic": "GULLSTON",
+            "name": "Gullstone Bay Aquarium"
+          },
+          "audit": "2018-07-15T16:18:44-07:00 Petrov, Anya"
+        }
+      ],
+      "media": [
+        {
+          "originRef": "media.5120",
+          "fileName": "5120.jpg",
+          "mediaType": "image/jpeg",
+          "sha256": "d8a1fa36aff4a8b69af2147910a66950641e48f03e1bd8c57906ca333a727727",
+          "description": "Gastric perforation, in situ",
+          "credits": "Okafor, Grace",
+          "fileDateTime": "2023-11-18T11:20:00-08:00",
+          "audit": "2023-11-18T15:50:12-08:00 Okafor, Grace"
+        }
+      ],
+      "necropsies": [
+        {
+          "originRef": "necropsy.418",
+          "necropsyNumber": "9",
+          "necropsyYear": "2023",
+          "recordDate": "2023-11-18",
+          "deathTransactionRef": "transaction.22610",
+          "performedBy": "Okafor, Grace; Coastal Veterinary Diagnostics",
+          "staff": [
+            "Brennan, Theo",
+            "Okafor, Grace"
+          ],
+          "approvedDateTime": "2023-11-24T14:00:00-08:00",
+          "finalDiagnoses": [
+            "Gastric ulceration",
+            "Peritonitis",
+            "Gastric nematodiasis"
+          ],
+          "noteText": "<h3>Diagnosis</h3><p>Multiple deep gastric ulcers with <strong>perforation</strong> and peritonitis. Nematodes in the stomach, moderate numbers.</p><h3>History</h3><p>Six weeks of weight loss and reduced appetite; treated for suspected gastritis.</p><h3>Weights and Measurements</h3><p>49.0 kg. Blubber 1.8 cm at the sternum.</p><h3>Digestive System, Mouth, Esophagus, Stomach, Intestines, Rectum</h3><p>4 cm perforation of the fundic stomach with fibrin on the serosa; about 200 anisakid nematodes attached to the gastric mucosa.</p>",
+          "grossNecropsy": "Thin, 49 kg. Blubber depth 1.8 cm at the sternum. 4 cm perforation of the fundic stomach with fibrin on the serosa. Other organs unremarkable.",
+          "histopathology": {
+            "lab": "Coastal Veterinary Diagnostics",
+            "labNumber": "CVD-H-23-4471",
+            "performedBy": "Lin, Morgan",
+            "approvedDateTime": "2023-12-05T11:30:00-08:00",
+            "noteText": "<h3>Diagnosis</h3><p>Stomach - severe, chronic-active, ulcerative and perforating gastritis with intralesional nematodes.</p><h3>Comments</h3><p>Consistent with the gross findings; no evidence of neoplasia.</p><h3>Liver</h3><p>Mild hepatic lipidosis.</p>"
+          },
+          "labTestRefs": [
+            "labTest.118204"
+          ],
+          "measurementRefs": [
+            "measurementSet.70411"
+          ],
+          "media": [
+            "5120.jpg"
+          ],
+          "audit": "2023-11-18T15:42:10-08:00 Okafor, Grace"
+        }
+      ]
+    }
+  }
+}

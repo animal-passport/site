@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/paths";
+---
+<BaseLayout
+  title="Page not found — Animal Passport"
+  description="That page does not exist."
+>
+  <section class="bg-cream-50 py-24 md:py-32">
+    <div class="mx-auto max-w-2xl px-6 text-center">
+      <p class="text-xs font-semibold tracking-[0.14em] uppercase text-teal-700">404</p>
+      <h1
+        class="mt-4 font-serif text-navy-900 text-[clamp(2.25rem,4.5vw,3.25rem)] leading-[1.08] tracking-tight"
+        style="font-variation-settings: 'opsz' 60;"
+      >
+        Page not found
+      </h1>
+      <p class="mt-6 text-navy-700 text-[1.075rem] leading-relaxed">
+        The page you requested does not exist or has moved. Please return to the <a href={withBase("/")} class="link font-medium">home page</a> or open the <a href={withBase("/viewer")} class="link font-medium">passport viewer</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { withBase } from "../lib/paths";
+import "../styles/viewer.css";
+
+const samples = [
+  { url: withBase("/examples/pebble.json"), label: "View sample: Pebble", primary: true },
+  { url: withBase("/examples/skerry.json"), label: "View sample: Skerry", primary: false },
+];
+---
+<BaseLayout
+  title="Passport viewer — Animal Passport"
+  description="A free reference viewer for the Animal Passport format. Open a passport file in your web browser without uploading it, and save a readable copy as a PDF."
+>
+  <PageHeader
+    eyebrow="Passport viewer"
+    title="View a passport in your browser"
+    lede="A free reference viewer for version 0.1 of the format. If your records software cannot yet import a passport, you can view its full contents here and save a readable copy as a PDF."
+  />
+
+  <div id="pv-app" class="pv-app mx-auto max-w-5xl px-6 pb-24">
+    <div class="pv-privacy pv-noprint">
+      <p>
+        <strong>Your file does not leave your computer.</strong>
+        The viewer reads it in your web browser. Nothing is uploaded, stored or transmitted, and closing the page clears it.
+      </p>
+    </div>
+
+    <section class="pv-drop" data-pv-drop aria-label="Open a passport">
+      <p class="pv-drop-title">Drag a passport file here</p>
+      <p class="pv-drop-hint">
+        A passport is a zip file containing passport.json and a media folder. A passport.json file on its own can also be opened, without its photographs and documents.
+      </p>
+      <div class="pv-drop-actions">
+        <label class="pv-btn pv-btn-primary">
+          Choose a file
+          <input type="file" accept=".zip,.json,application/zip,application/json" class="sr-only" data-pv-input />
+        </label>
+        {samples.map((s) => (
+          <button type="button" class="pv-btn" data-pv-sample={s.url}>{s.label}</button>
+        ))}
+      </div>
+    </section>
+
+    <p class="pv-status" role="status" aria-live="polite" data-pv-status hidden></p>
+
+    <div class="pv-output" data-pv-output></div>
+
+    <div class="pv-toolbar" data-pv-toolbar hidden>
+      <div class="pv-search-wrap">
+        <label for="pv-search" class="sr-only">Search every record</label>
+        <input id="pv-search" type="search" class="pv-search" placeholder="Search every record" autocomplete="off" data-pv-search />
+        <span class="pv-count" aria-live="polite" data-pv-count></span>
+      </div>
+      <div class="pv-toolbar-buttons">
+        <button type="button" class="pv-btn pv-btn-small" data-pv-expand>Expand all</button>
+        <button type="button" class="pv-btn pv-btn-small" data-pv-collapse>Collapse all</button>
+        <button type="button" class="pv-btn pv-btn-small pv-btn-primary" data-pv-print>Save as PDF</button>
+      </div>
+    </div>
+
+    <dialog class="pv-lightbox" data-pv-lightbox aria-label="Image">
+      <img alt="" />
+      <div class="pv-lightbox-bar">
+        <span data-pv-caption></span>
+        <button type="button" class="pv-lightbox-close" data-pv-close>Close</button>
+      </div>
+    </dialog>
+
+    <p class="pv-noprint mt-10 text-[14px] text-muted-500 leading-relaxed">
+      The viewer displays every field in the file, including fields it does not recognize. The file is the authoritative record; if the viewer and the file ever differ, the file is correct. To report a problem with the viewer, please <a href={withBase("/contact")} class="link">contact us</a>.
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  import { initViewer } from "../lib/viewer/main";
+  const app = document.getElementById("pv-app");
+  if (app) initViewer(app);
+</script>

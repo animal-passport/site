@@ -1,0 +1,29 @@
+---
+type Variant = "teal" | "amber" | "navy" | "cream";
+
+interface Props {
+  variant?: Variant;
+  title?: string;
+}
+
+const { variant = "teal", title } = Astro.props;
+
+const styles: Record<Variant, string> = {
+  teal: "bg-teal-50 border-l-4 border-teal-700 text-ink-900",
+  amber: "bg-amber-50 border-l-4 border-amber-700 text-ink-900",
+  navy: "bg-navy-900 border-l-4 border-teal-700 text-cream-50",
+  cream: "bg-cream-100 border-l-4 border-rule-200 text-ink-900",
+};
+
+const titleColor = variant === "navy" ? "text-cream-50" : "text-navy-900";
+---
+<aside class={`${styles[variant]} px-6 py-6 md:px-8 md:py-7 rounded-r-lg`}>
+  {title && (
+    <h3 class={`${titleColor} font-serif text-xl md:text-2xl font-medium mb-2`} style="font-variation-settings: 'opsz' 14;">
+      {title}
+    </h3>
+  )}
+  <div class="leading-relaxed">
+    <slot />
+  </div>
+</aside>

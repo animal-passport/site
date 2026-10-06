@@ -1,0 +1,2691 @@
+{
+  "$schema": "https://animalpassport.org/schema/0.1/passport.schema.json",
+  "_note": "PUBLIC SAMPLE - every animal, facility, person, place, number and note in this file is invented. Pebble is a harbor seal born in rehabilitation at Tern Point, released, restranded entangled, and since 2018 held by Gullstone Bay Aquarium for her owner, the Coastal Pinniped Trust. She carries every field the format defines except the ones only a dead animal has, which are in skerry.json (her dam). Records whose originRef starts TP- were recorded at Tern Point and came to Gullstone in an earlier passport: they keep Tern Point's originRef and name it in recordedAt. Media sha256 values are digests of no real file. Phone numbers use the fictional 555-01xx range, the transponder the 999 test prefix. The taxonomy ids are the real ITIS and GBIF ids for Phoca vitulina. The package is one zip - this file as passport.json, the media under media/.",
+  "animalPassport": {
+    "manifest": {
+      "specVersion": "0.1",
+      "transferBatchKey": "3f6c2a1e-8b4d-4c7a-9e21-5d0b7a6c4f18",
+      "exportedDateTime": "2026-09-28T10:15:42-07:00",
+      "exportedBy": "Petrov, Anya",
+      "originSoftware": {
+        "name": "examplerecords",
+        "version": "3.2.1"
+      },
+      "holderFacility": {
+        "institutionCode": "900101",
+        "mnemonic": "GULLSTON",
+        "name": "Gullstone Bay Aquarium"
+      },
+      "ownerFacility": {
+        "institutionCode": "900103",
+        "mnemonic": "CPTRUST",
+        "name": "Coastal Pinniped Trust"
+      },
+      "contents": [
+        {
+          "recordType": "sexHistory",
+          "recordCount": 2
+        },
+        {
+          "recordType": "identifiers",
+          "recordCount": 5
+        },
+        {
+          "recordType": "parents",
+          "recordCount": 2
+        },
+        {
+          "recordType": "rearings",
+          "recordCount": 2
+        },
+        {
+          "recordType": "populations",
+          "recordCount": 1
+        },
+        {
+          "recordType": "transactions",
+          "recordCount": 5
+        },
+        {
+          "recordType": "animalNotes",
+          "recordCount": 2
+        },
+        {
+          "recordType": "clinicalNotes",
+          "recordCount": 3
+        },
+        {
+          "recordType": "cases",
+          "recordCount": 3
+        },
+        {
+          "recordType": "nutritionNotes",
+          "recordCount": 2
+        },
+        {
+          "recordType": "medicalAlerts",
+          "recordCount": 2
+        },
+        {
+          "recordType": "chronicConditions",
+          "recordCount": 1
+        },
+        {
+          "recordType": "drugReactions",
+          "recordCount": 1
+        },
+        {
+          "recordType": "prescriptions",
+          "recordCount": 4
+        },
+        {
+          "recordType": "labCollections",
+          "recordCount": 2
+        },
+        {
+          "recordType": "measurements",
+          "recordCount": 3
+        },
+        {
+          "recordType": "physiologicalReadings",
+          "recordCount": 2
+        },
+        {
+          "recordType": "contraceptions",
+          "recordCount": 2
+        },
+        {
+          "recordType": "observations",
+          "recordCount": 3
+        },
+        {
+          "recordType": "enrichment",
+          "recordCount": 2
+        },
+        {
+          "recordType": "training",
+          "recordCount": 1
+        },
+        {
+          "recordType": "welfareAssessments",
+          "recordCount": 2
+        },
+        {
+          "recordType": "actionPlans",
+          "recordCount": 1
+        },
+        {
+          "recordType": "digitalImaging",
+          "recordCount": 1
+        },
+        {
+          "recordType": "diets",
+          "recordCount": 2
+        },
+        {
+          "recordType": "media",
+          "recordCount": 6
+        },
+        {
+          "recordType": "anesthesias",
+          "recordCount": 2
+        },
+        {
+          "recordType": "feedings",
+          "recordCount": 2
+        }
+      ]
+    },
+    "core": {
+      "gan": "SAMPLE-GAN-0001",
+      "localId": "PV-17-02",
+      "taxonomy": {
+        "common": "Harbor Seal",
+        "scientificName": "Phoca vitulina",
+        "rank": "Species",
+        "taxonIds": [
+          {
+            "scheme": "itis",
+            "value": "180649"
+          },
+          {
+            "scheme": "gbif",
+            "value": "2434793"
+          }
+        ],
+        "extensions": {
+          "examplerecords": {
+            "taxonKey": "PHOVIT"
+          }
+        }
+      },
+      "currentSex": "Female",
+      "birth": {
+        "birthDate": "2017-06-04",
+        "birthDateEarliest": "2017-06-03",
+        "birthDateLatest": "2017-06-04",
+        "birthType": "Captive born",
+        "hybrid": "Not a hybrid",
+        "birthInstitution": {
+          "institutionCode": "900102",
+          "mnemonic": "TERNPT",
+          "name": "Tern Point Marine Rescue"
+        }
+      },
+      "animalType": "individual",
+      "lifeCycle": {
+        "current": "live",
+        "initial": "live"
+      },
+      "population": "0.1.0"
+    },
+    "records": {
+      "sexHistory": [
+        {
+          "originRef": "TP-S-0102",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "sex": "Female",
+          "recordDateTime": "2017-06-05T09:15:00-07:00",
+          "comments": "Sexed at the first neonatal exam.",
+          "audit": "2017-06-05T09:31:52-07:00 Moreau, Jules"
+        },
+        {
+          "originRef": "TP-S-0101",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "sex": "Unknown",
+          "recordDateTime": "2017-06-04T07:40:00-07:00",
+          "comments": "Pup found with her dam at first light; not yet sexed.",
+          "audit": "2017-06-04T07:52:10-07:00 Achebe, Lena"
+        }
+      ],
+      "identifiers": [
+        {
+          "originRef": "identifier.30214",
+          "primary": true,
+          "identifierType": "House Name",
+          "value": "Pebble",
+          "recordDateTime": "2018-07-15T16:30:00-07:00",
+          "comments": "Named by the keepers for the small round scar on her muzzle.",
+          "media": [
+            "4101.jpg"
+          ],
+          "audit": "2018-07-15T16:41:07-07:00 Petrov, Anya"
+        },
+        {
+          "originRef": "identifier.30215",
+          "identifierType": "Transponder",
+          "value": "999000000004417",
+          "location": "Dorsal midline, between the scapulae",
+          "recordDateTime": "2018-07-16T11:20:00-07:00",
+          "comments": "Placed at the arrival exam.",
+          "audit": "2018-07-16T11:38:02-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "TP-I-0213",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "identifierType": "Stranding ID",
+          "value": "STR-2018-0042",
+          "recordDateTime": "2018-03-20T08:05:00-07:00",
+          "audit": "2018-03-20T12:14:40-07:00 Achebe, Lena"
+        },
+        {
+          "originRef": "TP-I-0212",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "identifierType": "Flipper Tag",
+          "value": "TP 0417",
+          "location": "Right hind flipper, inner web",
+          "recordDateTime": "2017-09-11T14:00:00-07:00",
+          "removalDateTime": "2018-03-21T10:30:00-07:00",
+          "removalComments": "Torn out in the entanglement; the site healed clean.",
+          "audit": "2017-09-11T14:22:19-07:00 Achebe, Lena"
+        },
+        {
+          "originRef": "TP-I-0211",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "identifierType": "Rehabilitation Number",
+          "value": "TP-17-031",
+          "recordDateTime": "2017-06-04T07:45:00-07:00",
+          "audit": "2017-06-04T07:53:31-07:00 Achebe, Lena"
+        }
+      ],
+      "parents": [
+        {
+          "originRef": "TP-P-0090",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "parentType": "Dam",
+          "probability": "1.00",
+          "ids": [
+            {
+              "scheme": "local",
+              "role": "source",
+              "facility": {
+                "institutionCode": "900101",
+                "mnemonic": "GULLSTON",
+                "name": "Gullstone Bay Aquarium"
+              },
+              "value": "PV-11-05"
+            },
+            {
+              "scheme": "gan",
+              "facility": {
+                "institutionCode": "900101",
+                "mnemonic": "GULLSTON",
+                "name": "Gullstone Bay Aquarium"
+              },
+              "value": "SAMPLE-GAN-0002"
+            },
+            {
+              "scheme": "local",
+              "role": "holder",
+              "facility": {
+                "institutionCode": "900102",
+                "mnemonic": "TERNPT",
+                "name": "Tern Point Marine Rescue"
+              },
+              "value": "TP-17-011"
+            },
+            {
+              "scheme": "local",
+              "role": "owner",
+              "facility": {
+                "institutionCode": "900103",
+                "mnemonic": "CPTRUST",
+                "name": "Coastal Pinniped Trust"
+              },
+              "value": "CPT-0019"
+            }
+          ],
+          "birthDate": "2011-06-01",
+          "taxon": "Phoca vitulina",
+          "comments": "Stranded pregnant in May 2017 and pupped in rehabilitation.",
+          "audit": "2017-06-04T08:02:44-07:00 Achebe, Lena"
+        },
+        {
+          "originRef": "TP-P-0091",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "parentType": "Sire",
+          "unknownReason": "wild",
+          "comments": "Wild sire, not known.",
+          "audit": "2017-06-04T08:03:10-07:00 Achebe, Lena"
+        }
+      ],
+      "rearings": [
+        {
+          "originRef": "TP-R-0071",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "recordDateTime": "2018-03-22T09:00:00-07:00",
+          "rearingType": "Hand",
+          "comments": "Tube-fed fish slurry for nine days after the second stranding, then hand-fed whole fish.",
+          "audit": "2018-03-22T09:40:15-07:00 Achebe, Lena"
+        },
+        {
+          "originRef": "TP-R-0055",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "recordDateTime": "2017-06-04T08:00:00-07:00",
+          "rearingType": "Parent",
+          "comments": "Nursed by her dam in the rehabilitation pool until weaning on 2017-07-02.",
+          "audit": "2017-06-04T08:10:48-07:00 Achebe, Lena"
+        }
+      ],
+      "populations": [
+        {
+          "lifeStage": "Adult",
+          "population": "0.1.0"
+        }
+      ],
+      "transactions": [
+        {
+          "originRef": "transaction.20877",
+          "recordDateTime": "2024-04-09T09:30:00-07:00",
+          "transactionType": {
+            "description": "Move Animal",
+            "category": "Move Animal"
+          },
+          "enclosureName": "Harbor Habitat",
+          "population": [
+            {
+              "originRef": "transactionPopulation.15012",
+              "lifeStage": "Adult",
+              "population": "0.1.0"
+            }
+          ],
+          "comments": "Moved with PV-15-01 when the new habitat opened.",
+          "ownerAfterTransaction": {
+            "institutionCode": "900103",
+            "mnemonic": "CPTRUST",
+            "name": "Coastal Pinniped Trust"
+          },
+          "holderAfterTransaction": {
+            "institutionCode": "900101",
+            "mnemonic": "GULLSTON",
+            "name": "Gullstone Bay Aquarium"
+          },
+          "audit": "2024-04-09T10:02:55-07:00 Petrov, Anya"
+        },
+        {
+          "originRef": "transaction.20431",
+          "recordDateTime": "2018-07-15T15:10:00-07:00",
+          "transactionType": {
+            "description": "Loan Acquisition",
+            "category": "Loan Transaction"
+          },
+          "enclosureName": "Quarantine Pool 2",
+          "population": [
+            {
+              "originRef": "transactionPopulation.14530",
+              "lifeStage": "Juvenile",
+              "population": "0.1.0"
+            }
+          ],
+          "comments": "Arrived from Tern Point by road, four hours in transit, no sedation. Deemed non-releasable (left eye).",
+          "ownerAfterTransaction": {
+            "institutionCode": "900103",
+            "mnemonic": "CPTRUST",
+            "name": "Coastal Pinniped Trust"
+          },
+          "holderAfterTransaction": {
+            "institutionCode": "900101",
+            "mnemonic": "GULLSTON",
+            "name": "Gullstone Bay Aquarium"
+          },
+          "audit": "2018-07-15T16:20:03-07:00 Petrov, Anya"
+        },
+        {
+          "originRef": "TP-E-0340",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "recordDateTime": "2018-03-20T08:05:00-07:00",
+          "transactionType": {
+            "description": "Rescue",
+            "category": "Rescue"
+          },
+          "enclosureName": "ICU Pen 3",
+          "population": [
+            {
+              "originRef": "TP-EP-0340",
+              "recordedAt": {
+                "institutionCode": "900102",
+                "mnemonic": "TERNPT",
+                "name": "Tern Point Marine Rescue"
+              },
+              "lifeStage": "Juvenile",
+              "population": "0.1.0"
+            }
+          ],
+          "comments": "Restranded entangled, six months after release.",
+          "ownerAfterTransaction": {
+            "institutionCode": "900103",
+            "mnemonic": "CPTRUST",
+            "name": "Coastal Pinniped Trust"
+          },
+          "holderAfterTransaction": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "geo": {
+            "description": "Gravel bar below the north jetty",
+            "city": "Gull Harbor",
+            "state": "WA",
+            "county": "Marrow County",
+            "country": "United States",
+            "bodyOfWater": "Pacific Ocean",
+            "latitude": "46.9388",
+            "longitude": "-124.1456",
+            "latLonType": "GPS",
+            "latLonEstimated": true,
+            "depth": {
+              "value": "0.00",
+              "unit": "m"
+            },
+            "airTemperature": {
+              "value": "8.50",
+              "unit": "Cel"
+            },
+            "waterTemperature": {
+              "value": "9.80",
+              "unit": "Cel"
+            },
+            "weather": "Overcast, light rain, wind SW 10 kn"
+          },
+          "rescue": {
+            "eventConfirmed": true,
+            "confirmation": "Confirmed by the Tern Point responder on scene.",
+            "observerName": "Dana Whitfield",
+            "observerPhone": "(360) 555-0142",
+            "observerAddress": "18 Shoreline Road, Gull Harbor, WA",
+            "reportDate": "2018-03-20",
+            "animalConditionAtReport": "Alive",
+            "weatherConditionAtReport": "Light rain",
+            "animalConditionAtRescue": "Alive",
+            "fisheryInteraction": "Yes",
+            "fisheryInteractionDetails": "Gillnet fragment around the neck and left fore flipper; pot buoy line trailing.",
+            "boatStrike": "No",
+            "boatStrikeDetails": "No propeller or hull marks.",
+            "humanInteraction": "Yes",
+            "humanInteractionDetails": "Fishing gear entanglement; flipper tag TP 0417 missing.",
+            "gearList": "Gillnet fragment, pot buoy line, hook and leader",
+            "gearDescriptionList": "Green nylon gillnet panel about 40 x 60 cm, 9 cm mesh; yellow buoy line about 3 m.",
+            "potGear": "Single",
+            "gillnetGear": "Netting",
+            "otherGear": "J hook on a short monofilament leader",
+            "line1Diameter": {
+              "value": "0.80",
+              "unit": "mm"
+            },
+            "line1DiameterEstimated": true,
+            "line1Type": "Monofilament",
+            "line1Color": "Clear",
+            "line2Diameter": {
+              "value": "2.00",
+              "unit": "mm"
+            },
+            "line2DiameterEstimated": true,
+            "line2Type": "Braided nylon",
+            "line2Color": "Green",
+            "line3Diameter": {
+              "value": "6.00",
+              "unit": "mm"
+            },
+            "line3DiameterEstimated": false,
+            "line3Type": "Polypropylene rope",
+            "line3Color": "Yellow",
+            "floatBuoys": "One orange pot buoy",
+            "buoyPotId": "WX-118",
+            "gearCollected": true,
+            "gearCollectedDetails": "Bagged and kept for the fisheries office.",
+            "gearRemoved": true,
+            "gearRemovedDetails": "Cut free on the beach under manual restraint.",
+            "typeOfHook": "J hook, size 4",
+            "locationOfHook": "Left lower lip",
+            "lineAttached": true,
+            "leaderLineAttached": true,
+            "surgeryNecessary": true,
+            "causeOfStranding": "Entanglement",
+            "strandingType": "Live stranding",
+            "ageCategory": "Yearling"
+          },
+          "audit": "2018-03-20T12:10:27-07:00 Achebe, Lena"
+        },
+        {
+          "originRef": "TP-E-0322",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "recordDateTime": "2017-09-12T10:40:00-07:00",
+          "transactionType": {
+            "description": "Release",
+            "category": "Release"
+          },
+          "comments": "Released at 100 days with flipper tag TP 0417.",
+          "geo": {
+            "description": "Sand beach south of the Tern Point light",
+            "city": "Gull Harbor",
+            "state": "WA",
+            "county": "Marrow County",
+            "country": "United States",
+            "bodyOfWater": "Pacific Ocean",
+            "latitude": "46.9021",
+            "longitude": "-124.1102",
+            "latLonType": "GPS",
+            "latLonEstimated": false,
+            "depth": {
+              "value": "0.50",
+              "unit": "m"
+            },
+            "airTemperature": {
+              "value": "16.00",
+              "unit": "Cel"
+            },
+            "waterTemperature": {
+              "value": "13.20",
+              "unit": "Cel"
+            },
+            "weather": "Clear, wind NW 5 kn"
+          },
+          "audit": "2017-09-12T15:05:18-07:00 Achebe, Lena"
+        },
+        {
+          "originRef": "TP-E-0301",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "recordDateTime": "2017-06-04T06:30:00-07:00",
+          "transactionType": {
+            "description": "Birth",
+            "category": "Birth"
+          },
+          "enclosureName": "Maternity Pool",
+          "population": [
+            {
+              "originRef": "TP-EP-0301",
+              "recordedAt": {
+                "institutionCode": "900102",
+                "mnemonic": "TERNPT",
+                "name": "Tern Point Marine Rescue"
+              },
+              "lifeStage": "Infant",
+              "population": "0.1.0"
+            }
+          ],
+          "ownerAfterTransaction": {
+            "institutionCode": "900103",
+            "mnemonic": "CPTRUST",
+            "name": "Coastal Pinniped Trust"
+          },
+          "holderAfterTransaction": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "audit": "2017-06-04T07:58:36-07:00 Achebe, Lena"
+        }
+      ],
+      "animalNotes": [
+        {
+          "originRef": "animalNote.88210",
+          "recordDateTime": "2026-09-14T10:05:00-07:00",
+          "category": "Animal management note",
+          "noteText": "<p>Pebble shifts to the holding pool on the recall whistle. She sees poorly on her left, so present fish and approach from her <strong>right</strong> side.</p>",
+          "audit": "2026-09-14T10:11:30-07:00 Duarte, Mia"
+        },
+        {
+          "originRef": "animalNote.86904",
+          "recordDateTime": "2025-11-03T16:20:00-08:00",
+          "category": "Social",
+          "animals": {
+            "count": 3,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01",
+              "PV-19-04"
+            ]
+          },
+          "noteText": "<p>Group of three settled after the pool refill. PV-15-01 displaces Pebble at the haul-out most mornings; no injuries seen.</p>",
+          "audit": "2025-11-03T16:24:12-08:00 Duarte, Mia"
+        }
+      ],
+      "cases": [
+        {
+          "originRef": "case.1203",
+          "caseNumber": "17",
+          "caseYear": "2026",
+          "caseType": "Preshipment",
+          "status": "open",
+          "openedDateTime": "2026-09-20T08:30:00-07:00",
+          "primaryVet": "Okafor, Grace",
+          "workingDiagnosis": "Healthy",
+          "complaint": "Pre-transfer examination.",
+          "audit": "2026-09-20T08:34:09-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "case.1188",
+          "caseNumber": "14",
+          "caseYear": "2026",
+          "caseType": "Clinical",
+          "status": "closed",
+          "openedDateTime": "2026-08-30T08:15:00-07:00",
+          "closedDateTime": "2026-09-06T12:00:00-07:00",
+          "primaryVet": "Okafor, Grace",
+          "workingDiagnosis": "Conjunctivitis, left eye",
+          "complaint": "Squinting and discharge from the left eye.",
+          "finalDiagnosis": [
+            "Conjunctivitis (disorder)"
+          ],
+          "finalDiagnosisText": "Conjunctivitis (disorder)",
+          "audit": "2026-08-30T08:19:44-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "case.640",
+          "caseNumber": "6",
+          "caseYear": "2021",
+          "caseType": "Clinical",
+          "status": "closed",
+          "openedDateTime": "2021-02-11T09:00:00-08:00",
+          "closedDateTime": "2021-03-04T08:00:00-08:00",
+          "primaryVet": "Ruiz, Daniel",
+          "workingDiagnosis": "Seal pox",
+          "complaint": "Raised nodules on the head and fore flippers.",
+          "finalDiagnosis": [
+            "Parapoxvirus infection (disorder)",
+            "Dermatitis (disorder)"
+          ],
+          "finalDiagnosisText": "Parapoxvirus infection (disorder)",
+          "animals": {
+            "count": 2,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01"
+            ]
+          },
+          "audit": "2021-02-11T09:12:30-08:00 Ruiz, Daniel"
+        }
+      ],
+      "clinicalNotes": [
+        {
+          "originRef": "clinicalNote.70511",
+          "recordDateTime": "2026-09-20T09:40:00-07:00",
+          "category": "Exam",
+          "caseRef": "case.1203",
+          "noteText": "<p>Pre-transfer exam under operant conditioning, no sedation. Weight 61.4 kg, body condition 3 of 5. Left cornea scarred, no discharge. Blood drawn - see lab results.</p>",
+          "audit": "2026-09-20T09:52:18-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "clinicalNote.70388",
+          "recordDateTime": "2026-08-30T08:30:00-07:00",
+          "category": "Treatment",
+          "caseRef": "case.1188",
+          "noteText": "<p>Started an ophthalmic antibiotic.</p><div data-record=\"prescription\" data-ref=\"prescription.4412\"><p>Ofloxacin 0.3% ophthalmic, 1 drop in the left eye every 8 hours for 7 days, from 2026-08-30.</p></div>",
+          "audit": "2026-08-30T08:41:02-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "clinicalNote.48120",
+          "recordDateTime": "2021-02-11T09:10:00-08:00",
+          "category": "Exam",
+          "caseRef": "case.640",
+          "animals": {
+            "count": 2,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01"
+            ]
+          },
+          "noteText": "<p>Nodules on PV-17-02 and PV-15-01 consistent with seal pox. Staff to glove; separate towels.</p>",
+          "audit": "2021-02-11T09:20:51-08:00 Ruiz, Daniel"
+        }
+      ],
+      "nutritionNotes": [
+        {
+          "originRef": "nutritionNote.512",
+          "recordDateTime": "2026-06-02T11:00:00-07:00",
+          "category": "Diet change",
+          "animals": {
+            "count": 3,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01",
+              "PV-19-04"
+            ]
+          },
+          "noteText": "<p>Herring changed to a new supplier lot; thiamine and vitamin E supplements unchanged.</p>",
+          "audit": "2026-06-02T11:06:40-07:00 Haldane, Ruth"
+        },
+        {
+          "originRef": "nutritionNote.498",
+          "recordDateTime": "2025-10-01T09:00:00-07:00",
+          "category": "General",
+          "noteText": "<p>Moved to the adult maintenance diet; energy goal 50 kcal per kg.</p>",
+          "audit": "2025-10-01T09:15:22-07:00 Haldane, Ruth"
+        }
+      ],
+      "medicalAlerts": [
+        {
+          "originRef": "medicalAlert.902",
+          "recordDateTime": "2018-07-16T12:00:31-07:00",
+          "alertLevel": "High",
+          "alertText": "Limited vision in the left eye - approach and present fish from her right.",
+          "audit": "2018-07-16T12:00:31-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "medicalAlert.744",
+          "recordDateTime": "2021-02-11T09:25:00-08:00",
+          "alertLevel": "Medium",
+          "alertText": "Seal pox lesions - glove; separate towels.",
+          "closedDateTime": "2021-03-04T08:00:00-08:00",
+          "animals": {
+            "count": 2,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01"
+            ]
+          },
+          "audit": "2021-02-11T09:25:00-08:00 Ruiz, Daniel"
+        }
+      ],
+      "chronicConditions": [
+        {
+          "originRef": "chronicCondition.77",
+          "recordDateTime": "2018-07-16T12:05:47-07:00",
+          "condition": "Corneal scarring, left eye",
+          "status": "Active",
+          "detailedDescription": "Healed ulcer from the 2018 entanglement; limited vision on the left.",
+          "reviews": [
+            {
+              "originRef": "chronicConditionReview.231",
+              "reviewDateTime": "2026-03-10T10:00:00-07:00",
+              "rating": {
+                "score": "2",
+                "display": "Stable (2)"
+              },
+              "action": "No change; annual ophthalmic exam.",
+              "comments": "Fluorescein negative.",
+              "audit": "2026-03-10T10:20:14-07:00 Okafor, Grace"
+            },
+            {
+              "originRef": "chronicConditionReview.198",
+              "reviewDateTime": "2025-03-12T10:30:00-07:00",
+              "rating": {
+                "score": "1",
+                "display": "Better (1)"
+              },
+              "action": "Stop the lubricating drops.",
+              "audit": "2025-03-12T10:44:09-07:00 Okafor, Grace"
+            }
+          ],
+          "audit": "2018-07-16T12:05:47-07:00 Okafor, Grace"
+        }
+      ],
+      "drugReactions": [
+        {
+          "originRef": "drugReaction.41",
+          "recordDateTime": "2019-05-08T14:10:33-07:00",
+          "drug": {
+            "name": "Amoxicillin-Clavulanate 250 mg",
+            "shortName": "Amox-clav",
+            "genericName": "amoxicillin and clavulanic acid"
+          },
+          "reactionLevel": "Mild",
+          "comments": "Both seals had loose stool for two days on the 2019 course; not a contraindication.",
+          "animals": {
+            "count": 2,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01"
+            ]
+          },
+          "audit": "2019-05-08T14:10:33-07:00 Okafor, Grace"
+        }
+      ],
+      "prescriptions": [
+        {
+          "originRef": "prescription.4460",
+          "status": "dispensed",
+          "recordDateTime": "2026-09-21T08:00:00-07:00",
+          "treatmentStartDate": "2026-09-21",
+          "prescribedBy": "Okafor, Grace",
+          "route": "orally",
+          "instructions": "Give inside a herring at the first feed.",
+          "deliveryComments": "Hide in the gill slit.",
+          "animals": {
+            "count": 3,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01",
+              "PV-19-04"
+            ]
+          },
+          "drugUse": [
+            {
+              "originRef": "drugUse.5188",
+              "drug": {
+                "name": "Thiamine 100 mg",
+                "shortName": "Vit B1",
+                "genericName": "thiamine",
+                "concentration": {
+                  "value": "100.0000",
+                  "unit": "mg",
+                  "description": "100 mg tablet",
+                  "deliveryForm": "Tablet"
+                }
+              },
+              "prescriptionType": "Supplement",
+              "doses": [
+                {
+                  "originRef": "dose.5377",
+                  "drugAmount": {
+                    "value": "100.0000",
+                    "unit": "mg"
+                  },
+                  "dose": {
+                    "value": "1.0000",
+                    "unit": "Tablet"
+                  },
+                  "administration": "give",
+                  "frequency": {
+                    "pattern": "timesPerDay",
+                    "times": 1
+                  },
+                  "duration": {
+                    "untilFurtherNotice": true
+                  }
+                }
+              ]
+            },
+            {
+              "originRef": "drugUse.5189",
+              "drug": {
+                "name": "Vitamin E 400 IU",
+                "shortName": "Vit E",
+                "genericName": "tocopherol",
+                "concentration": {
+                  "value": "400.0000",
+                  "unit": "[iU]",
+                  "description": "400 IU capsule",
+                  "deliveryForm": "Capsule"
+                }
+              },
+              "prescriptionType": "Supplement",
+              "doses": [
+                {
+                  "originRef": "dose.5378",
+                  "drugAmount": {
+                    "value": "400.0000",
+                    "unit": "[iU]"
+                  },
+                  "dose": {
+                    "value": "1.0000",
+                    "unit": "Capsule"
+                  },
+                  "administration": "give",
+                  "frequency": {
+                    "pattern": "timesPerWeek",
+                    "times": 3,
+                    "weekDays": [
+                      "Monday",
+                      "Wednesday",
+                      "Friday"
+                    ]
+                  },
+                  "duration": {
+                    "untilFurtherNotice": true
+                  }
+                }
+              ]
+            }
+          ],
+          "audit": "2026-09-21T08:12:40-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "prescription.4412",
+          "status": "closed",
+          "recordDateTime": "2026-08-30T08:20:00-07:00",
+          "treatmentStartDate": "2026-08-30",
+          "treatmentEndDate": "2026-09-05",
+          "prescribedBy": "Okafor, Grace",
+          "route": "ophthalmic",
+          "instructions": "1 drop in the left eye every 8 hours.",
+          "deliveryComments": "Apply at the eye station; reward after.",
+          "drugUse": [
+            {
+              "originRef": "drugUse.5120",
+              "drug": {
+                "name": "Ofloxacin 0.3% Ophthalmic",
+                "shortName": "Oflox",
+                "genericName": "ofloxacin",
+                "concentration": {
+                  "value": "3.0000",
+                  "unit": "mg",
+                  "description": "3 mg/mL ophthalmic solution",
+                  "deliveryForm": "drop"
+                }
+              },
+              "prescriptionType": "Treatment",
+              "doses": [
+                {
+                  "originRef": "dose.5301",
+                  "dose": {
+                    "value": "1.0000",
+                    "unit": "drop"
+                  },
+                  "administration": "apply",
+                  "frequency": {
+                    "pattern": "everyHours",
+                    "every": 8
+                  },
+                  "duration": {
+                    "value": "7",
+                    "unit": "days"
+                  }
+                }
+              ]
+            }
+          ],
+          "audit": "2026-08-30T08:26:15-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "prescription.4301",
+          "status": "prescribed",
+          "recordDateTime": "2025-01-06T09:00:00-08:00",
+          "treatmentStartDate": "2025-01-06",
+          "prescribedBy": "Okafor, Grace",
+          "route": "orally",
+          "instructions": "Quarterly dewormer, dose on the current weight.",
+          "drugUse": [
+            {
+              "originRef": "drugUse.4990",
+              "drug": {
+                "name": "Praziquantel 50 mg",
+                "shortName": "PZQ",
+                "genericName": "praziquantel",
+                "concentration": {
+                  "value": "50.0000",
+                  "unit": "mg",
+                  "description": "50 mg tablet",
+                  "deliveryForm": "Tablet"
+                }
+              },
+              "prescriptionType": "Preventive",
+              "doses": [
+                {
+                  "originRef": "dose.5150",
+                  "doseRate": {
+                    "value": "5.0000",
+                    "unit": "mg",
+                    "perUnit": "kg"
+                  },
+                  "drugAmount": {
+                    "value": "300.0000",
+                    "unit": "mg"
+                  },
+                  "dose": {
+                    "value": "6.0000",
+                    "unit": "Tablet"
+                  },
+                  "administration": "give",
+                  "frequency": {
+                    "pattern": "everyMonths",
+                    "every": 3
+                  },
+                  "duration": {
+                    "untilFurtherNotice": true
+                  }
+                }
+              ]
+            }
+          ],
+          "audit": "2025-01-06T09:08:51-08:00 Okafor, Grace"
+        },
+        {
+          "originRef": "prescription.3980",
+          "status": "closed",
+          "recordDateTime": "2024-05-14T09:45:00-07:00",
+          "treatmentStartDate": "2024-05-14",
+          "treatmentEndDate": "2024-05-16",
+          "prescribedBy": "Okafor, Grace",
+          "route": "orally",
+          "instructions": "After the dental procedure.",
+          "anesthesiaRef": "anesthesia.142",
+          "drugUse": [
+            {
+              "originRef": "drugUse.4722",
+              "drug": {
+                "name": "Meloxicam 1.5 mg/mL",
+                "shortName": "Melox",
+                "genericName": "meloxicam",
+                "concentration": {
+                  "value": "1.5000",
+                  "unit": "mg",
+                  "description": "1.5 mg/mL oral suspension",
+                  "deliveryForm": "mL"
+                }
+              },
+              "prescriptionType": "Treatment",
+              "doses": [
+                {
+                  "originRef": "dose.4930",
+                  "doseRate": {
+                    "value": "0.1000",
+                    "unit": "mg",
+                    "perUnit": "kg"
+                  },
+                  "drugAmount": {
+                    "value": "5.8000",
+                    "unit": "mg"
+                  },
+                  "dose": {
+                    "value": "3.8700",
+                    "unit": "mL"
+                  },
+                  "administration": "give",
+                  "frequency": {
+                    "pattern": "everyDays",
+                    "every": 1
+                  },
+                  "duration": {
+                    "value": "3",
+                    "unit": "days"
+                  }
+                },
+                {
+                  "originRef": "dose.4931",
+                  "dose": {
+                    "value": "2.0000",
+                    "unit": "mL"
+                  },
+                  "administration": "give",
+                  "frequency": {
+                    "pattern": "asNeeded"
+                  },
+                  "duration": {
+                    "value": "1",
+                    "unit": "weeks"
+                  }
+                }
+              ]
+            }
+          ],
+          "audit": "2024-05-14T09:52:03-07:00 Okafor, Grace"
+        }
+      ],
+      "anesthesias": [
+        {
+          "originRef": "anesthesia.142",
+          "number": "3",
+          "year": "2024",
+          "recordDateTime": "2024-05-14T08:10:00-07:00",
+          "reason": "Dental exam and skull radiographs - worn right upper canine.",
+          "anesthetist": "Ruiz, Daniel",
+          "primaryVet": "Okafor, Grace",
+          "recorder": "Brennan, Theo",
+          "health": "Normal",
+          "physicalStatus": "1 - Normal",
+          "activityLevel": "Normal",
+          "demeanor": "Alert",
+          "bodyCondition": "Good",
+          "fastingFood": "8-24 Hours",
+          "fastingWater": "<8 Hours",
+          "socialConditions": "Housed with group",
+          "immobilizationConditions": "Trained stretcher entry",
+          "operantConditioning": true,
+          "environmentTemperature": {
+            "value": "16.00",
+            "unit": "Cel"
+          },
+          "waterTemperature": {
+            "value": "12.00",
+            "unit": "Cel"
+          },
+          "waterType": "Natural seawater",
+          "gasAnestheticCircuit": "Rebreathing",
+          "vitalsMonitor": "Multiparameter monitor",
+          "bpCuff": {
+            "size": "Size 4",
+            "location": "Right hind flipper"
+          },
+          "endotrachealTube": "12 mm",
+          "endotrachealTubeComments": "Cuffed; placed on the first attempt.",
+          "inductionRating": {
+            "score": "4",
+            "display": "4. Above Average"
+          },
+          "recoveryRating": {
+            "score": "3",
+            "display": "3. Average"
+          },
+          "overallRating": {
+            "score": "4",
+            "display": "4. Above Average"
+          },
+          "restraintStartDateTime": "2024-05-14T08:12:00-07:00",
+          "initialEffectDateTime": "2024-05-14T08:21:00-07:00",
+          "recumbentDateTime": "2024-05-14T08:24:00-07:00",
+          "intubatedDateTime": "2024-05-14T08:29:00-07:00",
+          "extubatedDateTime": "2024-05-14T09:31:00-07:00",
+          "restraintEndDateTime": "2024-05-14T09:52:00-07:00",
+          "approvedDateTime": "2024-05-15T16:00:00-07:00",
+          "weightRef": "measurementSet.61027",
+          "estimatedWeightRef": "measurementSet.61002",
+          "monitoredTypes": [
+            "Heart Rate",
+            "Respiration Rate",
+            "Oxygen Saturation",
+            "Temperature",
+            "End Tidal CO2"
+          ],
+          "anesthetics": [
+            {
+              "originRef": "anesthetic.388",
+              "givenDateTime": "2024-05-14T08:14:00-07:00",
+              "delivery": "Hand Syringe",
+              "deliverySite": "Lumbar muscle",
+              "injectionRoute": "IM",
+              "needle": {
+                "length": {
+                  "value": "38.00",
+                  "unit": "mm"
+                },
+                "gauge": "20"
+              },
+              "animalWeight": {
+                "value": "58.20",
+                "unit": "kg"
+              },
+              "comments": "Premedication on the stretcher.",
+              "drugUse": [
+                {
+                  "originRef": "drugUse.4710",
+                  "drug": {
+                    "name": "Midazolam 5 mg/mL",
+                    "shortName": "Midaz",
+                    "genericName": "midazolam",
+                    "concentration": {
+                      "value": "5.0000",
+                      "unit": "mg",
+                      "description": "5 mg/mL injectable",
+                      "deliveryForm": "mL"
+                    }
+                  },
+                  "anestheticType": "Preanesthetic",
+                  "doses": [
+                    {
+                      "originRef": "dose.4911",
+                      "doseRate": {
+                        "value": "0.1000",
+                        "unit": "mg",
+                        "perUnit": "kg"
+                      },
+                      "drugAmount": {
+                        "value": "5.8200",
+                        "unit": "mg"
+                      },
+                      "dose": {
+                        "value": "1.1640",
+                        "unit": "mL"
+                      },
+                      "administration": "give",
+                      "frequency": {
+                        "pattern": "singleDose"
+                      },
+                      "duration": {
+                        "value": "1",
+                        "unit": "doses"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "audit": "2024-05-14T10:02:11-07:00 Brennan, Theo"
+            },
+            {
+              "originRef": "anesthetic.389",
+              "givenDateTime": "2024-05-14T08:27:00-07:00",
+              "delivery": "Facemask",
+              "injectionRoute": "Inhalation",
+              "animalWeight": {
+                "value": "58.20",
+                "unit": "kg"
+              },
+              "comments": "Masked down, then intubated.",
+              "drugUse": [
+                {
+                  "originRef": "drugUse.4711",
+                  "drug": {
+                    "name": "Isoflurane",
+                    "shortName": "Iso",
+                    "genericName": "isoflurane",
+                    "concentration": {
+                      "value": "100.0000",
+                      "unit": "%",
+                      "description": "Inhalant liquid",
+                      "deliveryForm": "mL"
+                    }
+                  },
+                  "anestheticType": "Maintenance",
+                  "doses": [
+                    {
+                      "originRef": "dose.4912",
+                      "administration": "give",
+                      "frequency": {
+                        "pattern": "singleDose"
+                      },
+                      "duration": {
+                        "value": "1",
+                        "unit": "doses"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "audit": "2024-05-14T10:02:40-07:00 Brennan, Theo"
+            },
+            {
+              "originRef": "anesthetic.390",
+              "givenDateTime": "2024-05-14T09:33:00-07:00",
+              "delivery": "Hand Syringe",
+              "deliverySite": "Catheter",
+              "injectionRoute": "IV",
+              "animalWeight": {
+                "value": "58.20",
+                "unit": "kg"
+              },
+              "drugUse": [
+                {
+                  "originRef": "drugUse.4712",
+                  "drug": {
+                    "name": "Flumazenil 0.1 mg/mL",
+                    "shortName": "Flumaz",
+                    "genericName": "flumazenil",
+                    "concentration": {
+                      "value": "0.1000",
+                      "unit": "mg",
+                      "description": "0.1 mg/mL injectable",
+                      "deliveryForm": "mL"
+                    }
+                  },
+                  "anestheticType": "Antagonist / Reversal",
+                  "doses": [
+                    {
+                      "originRef": "dose.4913",
+                      "doseRate": {
+                        "value": "0.0100",
+                        "unit": "mg",
+                        "perUnit": "kg"
+                      },
+                      "drugAmount": {
+                        "value": "0.5820",
+                        "unit": "mg"
+                      },
+                      "dose": {
+                        "value": "5.8200",
+                        "unit": "mL"
+                      },
+                      "administration": "give",
+                      "frequency": {
+                        "pattern": "singleDose"
+                      },
+                      "duration": {
+                        "value": "1",
+                        "unit": "doses"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "audit": "2024-05-14T10:03:05-07:00 Brennan, Theo"
+            }
+          ],
+          "catheters": [
+            {
+              "originRef": "catheter.51",
+              "catheterType": "IV over-the-needle",
+              "length": {
+                "value": "51.00",
+                "unit": "mm"
+              },
+              "gauge": "18",
+              "location": "Extradural vein",
+              "comments": "Fluids at 5 mL/kg/h through the procedure."
+            }
+          ],
+          "complications": [
+            {
+              "originRef": "complication.33",
+              "complication": "Bradycardia",
+              "level": "1",
+              "comments": "Heart rate fell to 38/min at intubation; resolved with a lighter plane."
+            },
+            {
+              "originRef": "complication.34",
+              "complication": "Apnea",
+              "level": "2"
+            }
+          ],
+          "effectObservations": [
+            {
+              "originRef": "effectObservation.410",
+              "recordDateTime": "2024-05-14T08:21:00-07:00",
+              "stage": "Drowsy"
+            },
+            {
+              "originRef": "effectObservation.411",
+              "recordDateTime": "2024-05-14T08:24:00-07:00",
+              "stage": "Recumbent"
+            }
+          ],
+          "recoveryObservations": [
+            {
+              "originRef": "recoveryObservation.205",
+              "recordDateTime": "2024-05-14T09:35:00-07:00",
+              "stage": "Head lift",
+              "comments": "Breathing on her own, regular."
+            },
+            {
+              "originRef": "recoveryObservation.206",
+              "recordDateTime": "2024-05-14T09:52:00-07:00",
+              "stage": "Alert",
+              "comments": "Back to the dry holding area."
+            }
+          ],
+          "summary": "Smooth procedure; worn canine left in place, recheck in a year.",
+          "comments": "Radiographs filed under digital imaging.",
+          "audit": "2024-05-14T10:01:48-07:00 Brennan, Theo"
+        },
+        {
+          "originRef": "anesthesia.97",
+          "number": "11",
+          "year": "2019",
+          "recordDateTime": "2019-10-02T13:05:00-07:00",
+          "reason": "Lance an abscess on the right hind flipper.",
+          "anesthetist": "Okafor, Grace",
+          "primaryVet": "Okafor, Grace",
+          "recorder": "Duarte, Mia",
+          "health": "Abnormal",
+          "operantConditioning": false,
+          "inductionRating": {
+            "score": "3",
+            "display": "3. Average"
+          },
+          "recoveryRating": {
+            "score": "4",
+            "display": "4. Above Average"
+          },
+          "overallRating": {
+            "score": "3",
+            "display": "3. Average"
+          },
+          "anesthetics": [
+            {
+              "originRef": "anesthetic.201",
+              "givenDateTime": "2019-10-02T13:08:00-07:00",
+              "delivery": "Remote Delivery System",
+              "deliverySite": "Hip",
+              "injectionRoute": "IM",
+              "remoteDelivery": {
+                "system": "Blowpipe",
+                "dartType": "3 mL plastic dart",
+                "dartCharge": "Compressed air",
+                "powerSetting": "Low",
+                "metersToAnimal": "4.0",
+                "percentDelivered": "100"
+              },
+              "animalWeight": {
+                "value": "49.50",
+                "unit": "kg"
+              },
+              "comments": "Would not station on the haul-out.",
+              "drugUse": [
+                {
+                  "originRef": "drugUse.3310",
+                  "drug": {
+                    "name": "Butorphanol 10 mg/mL",
+                    "shortName": "Butor",
+                    "genericName": "butorphanol",
+                    "concentration": {
+                      "value": "10.0000",
+                      "unit": "mg",
+                      "description": "10 mg/mL injectable",
+                      "deliveryForm": "mL"
+                    }
+                  },
+                  "anestheticType": "Induction",
+                  "doses": [
+                    {
+                      "originRef": "dose.3402",
+                      "doseRate": {
+                        "value": "0.2000",
+                        "unit": "mg",
+                        "perUnit": "kg"
+                      },
+                      "drugAmount": {
+                        "value": "9.9000",
+                        "unit": "mg"
+                      },
+                      "dose": {
+                        "value": "0.9900",
+                        "unit": "mL"
+                      },
+                      "administration": "give",
+                      "frequency": {
+                        "pattern": "singleDose"
+                      },
+                      "duration": {
+                        "value": "1",
+                        "unit": "doses"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "audit": "2019-10-02T14:30:20-07:00 Okafor, Grace"
+            }
+          ],
+          "effectObservations": [
+            {
+              "originRef": "effectObservation.180",
+              "recordDateTime": "2019-10-02T13:16:00-07:00",
+              "stage": "Sedated"
+            }
+          ],
+          "audit": "2019-10-02T14:28:55-07:00 Okafor, Grace"
+        }
+      ],
+      "labCollections": [
+        {
+          "originRef": "labCollection.90233",
+          "recordDateTime": "2026-09-20T09:05:00-07:00",
+          "collectionReason": "Preshipment",
+          "fasting": "Overnight",
+          "restraintType": "Operant conditioning",
+          "activityLevel": "Calm",
+          "healthStatus": "Normal",
+          "collectedBy": "Okafor, Grace",
+          "comments": "Drawn from the rear flipper during the trained presentation.",
+          "samples": [
+            {
+              "originRef": "labSample.26004102",
+              "sampleId": "26004102",
+              "sampleType": "Whole blood (EDTA)",
+              "sampleSite": "Interdigital vein, rear flipper",
+              "quantity": {
+                "value": "6.0000",
+                "unit": "mL"
+              },
+              "typical": true,
+              "storedOnly": false,
+              "tests": [
+                {
+                  "originRef": "labTest.110851",
+                  "currentStatus": "Approved",
+                  "statuses": [
+                    {
+                      "status": "requested",
+                      "by": "Okafor, Grace",
+                      "dateTime": "2026-09-20T09:12:00-07:00"
+                    },
+                    {
+                      "status": "sentOut",
+                      "by": "Brennan, Theo",
+                      "dateTime": "2026-09-20T13:30:00-07:00"
+                    },
+                    {
+                      "status": "resultsIn",
+                      "by": "Brennan, Theo",
+                      "dateTime": "2026-09-22T10:05:00-07:00"
+                    },
+                    {
+                      "status": "approved",
+                      "by": "Okafor, Grace",
+                      "dateTime": "2026-09-22T15:40:00-07:00"
+                    }
+                  ],
+                  "lab": "In-house",
+                  "testMethod": "Hematology",
+                  "labLocalId": "H-26-0912",
+                  "findings": [
+                    {
+                      "originRef": "labFinding.380201",
+                      "finding": "WBC",
+                      "result": {
+                        "value": "9.8",
+                        "unit": "10*3/uL"
+                      },
+                      "reference": {
+                        "mean": "10.40000000",
+                        "low": "6.20000000",
+                        "high": "14.60000000"
+                      }
+                    },
+                    {
+                      "originRef": "labFinding.380202",
+                      "finding": "Hematocrit",
+                      "result": {
+                        "value": "48",
+                        "unit": "%"
+                      },
+                      "reference": {
+                        "mean": "51.30000000",
+                        "low": "42.00000000",
+                        "high": "60.50000000"
+                      }
+                    },
+                    {
+                      "originRef": "labFinding.380203",
+                      "finding": "Hemoglobin",
+                      "result": {
+                        "value": "16.9",
+                        "unit": "g/dL"
+                      },
+                      "reference": {
+                        "mean": "18.10000000",
+                        "low": "14.90000000",
+                        "high": "21.30000000"
+                      }
+                    }
+                  ],
+                  "comments": "Hematocrit at the low end, as in her past results.",
+                  "textResults": "No blood parasites seen on the smear.",
+                  "finalDiagnosis": "Within normal limits.",
+                  "audit": "2026-09-20T09:14:27-07:00 Okafor, Grace"
+                },
+                {
+                  "originRef": "labTest.110852",
+                  "currentStatus": "Sent Out",
+                  "statuses": [
+                    {
+                      "status": "requested",
+                      "by": "Okafor, Grace",
+                      "dateTime": "2026-09-20T09:12:00-07:00"
+                    },
+                    {
+                      "status": "sentOut",
+                      "by": "Brennan, Theo",
+                      "dateTime": "2026-09-20T13:30:00-07:00"
+                    }
+                  ],
+                  "lab": "Coastal Veterinary Diagnostics",
+                  "testMethod": "Phocine distemper serology",
+                  "labLocalId": "CVD-88412",
+                  "comments": "Requested by the receiving facility.",
+                  "audit": "2026-09-20T09:15:02-07:00 Okafor, Grace"
+                }
+              ],
+              "audit": "2026-09-20T09:13:50-07:00 Okafor, Grace"
+            },
+            {
+              "originRef": "labSample.26004103",
+              "sampleId": "26004103",
+              "sampleType": "Serum",
+              "sampleSite": "Interdigital vein, rear flipper",
+              "quantity": {
+                "value": "2.0000",
+                "unit": "mL"
+              },
+              "typical": false,
+              "storedOnly": true,
+              "audit": "2026-09-20T09:16:31-07:00 Okafor, Grace"
+            }
+          ],
+          "audit": "2026-09-20T09:13:20-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "labCollection.88710",
+          "recordDateTime": "2026-06-10T08:00:00-07:00",
+          "collectionReason": "Routine screening",
+          "collectedBy": "Duarte, Mia",
+          "comments": "Pooled from the haul-out.",
+          "animals": {
+            "count": 3,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01",
+              "PV-19-04"
+            ]
+          },
+          "samples": [
+            {
+              "originRef": "labSample.26002950",
+              "sampleId": "26002950",
+              "sampleType": "Feces (pooled)",
+              "quantity": {
+                "value": "20.0000",
+                "unit": "g"
+              },
+              "typical": true,
+              "storedOnly": false,
+              "tests": [
+                {
+                  "originRef": "labTest.108230",
+                  "currentStatus": "Approved",
+                  "statuses": [
+                    {
+                      "status": "requested",
+                      "by": "Duarte, Mia",
+                      "dateTime": "2026-06-10T08:10:00-07:00"
+                    },
+                    {
+                      "status": "resultsIn",
+                      "by": "Brennan, Theo",
+                      "dateTime": "2026-06-10T14:45:00-07:00"
+                    },
+                    {
+                      "status": "approved",
+                      "by": "Okafor, Grace",
+                      "dateTime": "2026-06-11T09:20:00-07:00"
+                    }
+                  ],
+                  "lab": "In-house",
+                  "testMethod": "Fecal flotation",
+                  "findings": [
+                    {
+                      "originRef": "labFinding.371120",
+                      "finding": "Anisakid ova",
+                      "result": {
+                        "value": "120",
+                        "unit": "{ova}/g"
+                      }
+                    }
+                  ],
+                  "audit": "2026-06-10T08:12:05-07:00 Duarte, Mia"
+                }
+              ],
+              "audit": "2026-06-10T08:11:40-07:00 Duarte, Mia"
+            }
+          ],
+          "audit": "2026-06-10T08:11:02-07:00 Duarte, Mia"
+        }
+      ],
+      "measurements": {
+        "ranges": [
+          {
+            "originRef": "measurementRange.611",
+            "measureCode": {
+              "description": "Weight",
+              "unitType": "Weight"
+            },
+            "startDate": "2024-01-01",
+            "acceptable": {
+              "low": "50.0000",
+              "high": "70.0000"
+            },
+            "goal": {
+              "low": "56.0000",
+              "high": "64.0000"
+            },
+            "unit": "kg",
+            "comments": "Adult female; reviewed each January."
+          }
+        ],
+        "records": [
+          {
+            "originRef": "measurementSet.63810",
+            "recordDateTime": "2026-09-20T08:50:00-07:00",
+            "measurements": [
+              {
+                "originRef": "measurement.60417",
+                "measureCode": {
+                  "description": "Weight",
+                  "unitType": "Weight"
+                },
+                "quantity": {
+                  "value": "61.4000",
+                  "unit": "kg"
+                },
+                "estimated": false,
+                "method": "Platform scale",
+                "comments": "Trained scale behavior.",
+                "audit": "2026-09-20T08:52:10-07:00 Duarte, Mia"
+              },
+              {
+                "originRef": "measurement.60418",
+                "measureCode": {
+                  "description": "Body Length",
+                  "unitType": "Length"
+                },
+                "quantity": {
+                  "value": "142.0000",
+                  "unit": "cm"
+                },
+                "estimated": false,
+                "method": "Tape, nose to tail",
+                "audit": "2026-09-20T08:53:44-07:00 Duarte, Mia"
+              }
+            ]
+          },
+          {
+            "originRef": "measurementSet.61027",
+            "recordDateTime": "2024-05-14T08:05:00-07:00",
+            "measurements": [
+              {
+                "originRef": "measurement.58120",
+                "measureCode": {
+                  "description": "Weight",
+                  "unitType": "Weight"
+                },
+                "quantity": {
+                  "value": "58.2000",
+                  "unit": "kg"
+                },
+                "estimated": false,
+                "method": "Platform scale",
+                "audit": "2024-05-14T08:06:30-07:00 Brennan, Theo"
+              }
+            ]
+          },
+          {
+            "originRef": "measurementSet.61002",
+            "recordDateTime": "2024-05-12T15:00:00-07:00",
+            "measurements": [
+              {
+                "originRef": "measurement.58095",
+                "measureCode": {
+                  "description": "Weight",
+                  "unitType": "Weight"
+                },
+                "quantity": {
+                  "value": "58.0000",
+                  "unit": "kg"
+                },
+                "estimated": true,
+                "method": "Visual estimate",
+                "comments": "Scale out of service; estimated by two keepers.",
+                "audit": "2024-05-12T15:04:12-07:00 Duarte, Mia"
+              }
+            ]
+          }
+        ]
+      },
+      "physiologicalReadings": [
+        {
+          "originRef": "physiologicalReading.200118",
+          "recordDateTime": "2026-09-20T09:10:00-07:00",
+          "details": [
+            {
+              "originRef": "physiologicalDetail.990410",
+              "type": "Heart Rate",
+              "result": {
+                "value": "88",
+                "unit": "/min"
+              }
+            },
+            {
+              "originRef": "physiologicalDetail.990411",
+              "type": "Respiration Rate",
+              "result": {
+                "value": "12",
+                "unit": "/min"
+              }
+            }
+          ],
+          "audit": "2026-09-20T09:11:05-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "physiologicalReading.190321",
+          "recordDateTime": "2024-05-14T08:40:00-07:00",
+          "anesthesiaRef": "anesthesia.142",
+          "details": [
+            {
+              "originRef": "physiologicalDetail.951200",
+              "type": "Heart Rate",
+              "result": {
+                "value": "62",
+                "unit": "/min"
+              }
+            },
+            {
+              "originRef": "physiologicalDetail.951201",
+              "type": "Respiration Rate",
+              "result": {
+                "value": "6",
+                "unit": "/min"
+              }
+            },
+            {
+              "originRef": "physiologicalDetail.951202",
+              "type": "Oxygen Saturation",
+              "result": {
+                "value": "96",
+                "unit": "%"
+              }
+            },
+            {
+              "originRef": "physiologicalDetail.951203",
+              "type": "Temperature",
+              "result": {
+                "value": "36.8",
+                "unit": "Cel"
+              }
+            },
+            {
+              "originRef": "physiologicalDetail.951204",
+              "type": "End Tidal CO2",
+              "result": {
+                "value": "42",
+                "unit": "mm[Hg]"
+              }
+            }
+          ],
+          "audit": "2024-05-14T08:41:30-07:00 Brennan, Theo"
+        }
+      ],
+      "contraceptions": [
+        {
+          "originRef": "contraception.402",
+          "recordDate": "2025-03-03",
+          "contraceptionType": "Hormone Implant",
+          "status": "active",
+          "permanent": false,
+          "comments": "Deslorelin implant, dorsal neck; kept from the adult male for three weeks.",
+          "audit": "2025-03-03T11:20:09-08:00 Okafor, Grace"
+        },
+        {
+          "originRef": "contraception.288",
+          "recordDate": "2022-02-28",
+          "contraceptionType": "Hormone Implant",
+          "status": "inactive",
+          "permanent": false,
+          "removalDate": "2024-12-02",
+          "removalComments": "Retrieved at the annual exam.",
+          "comments": "First implant.",
+          "audit": "2022-02-28T10:02:37-08:00 Okafor, Grace"
+        }
+      ],
+      "observations": [
+        {
+          "originRef": "observation.4420",
+          "recordDateTime": "2026-09-18T09:00:00-07:00",
+          "observationType": "Body Condition",
+          "value": {
+            "score": "3",
+            "display": "3 - Ideal"
+          },
+          "comments": "Neck fold present, hips not visible.",
+          "observedBy": "Duarte, Mia",
+          "duration": {
+            "value": "5",
+            "unit": "min"
+          },
+          "audit": "2026-09-18T09:07:13-07:00 Duarte, Mia"
+        },
+        {
+          "originRef": "observation.4391",
+          "recordDateTime": "2026-09-04T15:00:00-07:00",
+          "observationType": "Eye Condition",
+          "value": {
+            "score": "Clear",
+            "display": "Clear"
+          },
+          "observedBy": "Okafor, Grace",
+          "audit": "2026-09-04T15:02:40-07:00 Okafor, Grace"
+        },
+        {
+          "originRef": "observation.4370",
+          "recordDateTime": "2026-08-22T10:00:00-07:00",
+          "observationType": "Social Behavior",
+          "value": {
+            "score": "Normal",
+            "display": "Normal"
+          },
+          "comments": "All three hauled out together.",
+          "observedBy": "Lindqvist, Sam",
+          "duration": {
+            "value": "30",
+            "unit": "min"
+          },
+          "animals": {
+            "count": 3,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01",
+              "PV-19-04"
+            ]
+          },
+          "audit": "2026-08-22T10:35:51-07:00 Lindqvist, Sam"
+        }
+      ],
+      "enrichment": {
+        "processes": [
+          {
+            "originRef": "enrichmentProcess.88",
+            "name": "Ice block with herring",
+            "summary": "Process 'Ice block with herring' - status Approved; taxa Pinnipeds; safety supervision: keeper present until it melts.",
+            "goalRatingLabels": [
+              "No interest",
+              "Investigated",
+              "Manipulated",
+              "Extended engagement"
+            ],
+            "levelRatingLabels": [
+              "Low",
+              "Below average",
+              "Average",
+              "Above average",
+              "High"
+            ]
+          },
+          {
+            "originRef": "enrichmentProcess.93",
+            "name": "Floating hose ring",
+            "summary": "Process 'Floating hose ring' - status Approved; taxa Pinnipeds.",
+            "goalRatingLabels": [
+              "No interest",
+              "Investigated",
+              "Manipulated",
+              "Extended engagement"
+            ],
+            "levelRatingLabels": [
+              "Low",
+              "Below average",
+              "Average",
+              "Above average",
+              "High"
+            ]
+          }
+        ],
+        "records": [
+          {
+            "originRef": "enrichment.7102",
+            "recordDateTime": "2026-09-12T10:30:00-07:00",
+            "processRef": "enrichmentProcess.88",
+            "process": "Ice block with herring",
+            "levelRating": {
+              "score": "4",
+              "display": "Above average"
+            },
+            "duration": {
+              "value": "25.00",
+              "unit": "min"
+            },
+            "foodUsed": true,
+            "onExhibit": true,
+            "recordedBy": "Duarte, Mia",
+            "comments": "Pushed the block to the shallows to work at it.",
+            "audit": "2026-09-12T11:02:44-07:00 Duarte, Mia"
+          },
+          {
+            "originRef": "enrichment.7055",
+            "recordDateTime": "2026-08-29T14:00:00-07:00",
+            "processRef": "enrichmentProcess.93",
+            "process": "Floating hose ring",
+            "levelRating": {
+              "score": "2",
+              "display": "Below average"
+            },
+            "duration": {
+              "value": "6.00",
+              "unit": "min"
+            },
+            "foodUsed": false,
+            "onExhibit": false,
+            "recordedBy": "Lindqvist, Sam",
+            "animals": {
+              "count": 3,
+              "localIds": [
+                "PV-17-02",
+                "PV-15-01",
+                "PV-19-04"
+              ]
+            },
+            "audit": "2026-08-29T14:15:20-07:00 Lindqvist, Sam"
+          }
+        ]
+      },
+      "training": {
+        "behaviors": [
+          {
+            "originRef": "trainingBehavior.31",
+            "name": "Voluntary blood draw",
+            "behaviorGoal": "Present a rear flipper and hold still 60 seconds for venipuncture.",
+            "approvalStatus": "Approved",
+            "audioCue": "Two short whistles",
+            "visualCue": "Flat hand toward the flipper",
+            "tactileCue": "Light touch on the flipper",
+            "primaryReinforcement": "Herring",
+            "completedBehaviorDescription": "Lies ventral on the mat, rear flippers together, holds through needle placement and draw.",
+            "resources": "Mat, cooler, phlebotomy kit",
+            "schedule": {
+              "timePerSession": {
+                "value": "10",
+                "unit": "min"
+              },
+              "sessionsPerDay": "1",
+              "daysPerWeek": "3"
+            },
+            "audit": "2019-02-04T13:10:05-08:00 Lindqvist, Sam"
+          },
+          {
+            "originRef": "trainingBehavior.40",
+            "name": "Stretcher entry",
+            "behaviorGoal": "Enter the stretcher and lie still.",
+            "approvalStatus": "Approved",
+            "visualCue": "Point to the stretcher",
+            "schedule": {
+              "timePerSession": {
+                "value": "5",
+                "unit": "min"
+              },
+              "sessionsPerDay": "1",
+              "daysPerWeek": "2"
+            },
+            "audit": "2019-06-17T10:44:51-07:00 Lindqvist, Sam"
+          }
+        ],
+        "records": [
+          {
+            "originRef": "trainingSession.5120",
+            "recordDateTime": "2026-09-19T10:00:00-07:00",
+            "sessionRating": {
+              "score": "4",
+              "display": "Very good"
+            },
+            "duration": {
+              "value": "15",
+              "unit": "min"
+            },
+            "trainers": [
+              "Lindqvist, Sam",
+              "Duarte, Mia"
+            ],
+            "comments": "Practice draw before the exam.",
+            "sessionBehaviors": [
+              {
+                "originRef": "sessionBehavior.990",
+                "behaviorRef": "trainingBehavior.31",
+                "behavior": "Voluntary blood draw",
+                "responseRating": {
+                  "score": "5",
+                  "display": "Excellent response"
+                },
+                "progressToGoal": "100",
+                "comments": "Held 75 seconds."
+              },
+              {
+                "originRef": "sessionBehavior.991",
+                "behaviorRef": "trainingBehavior.40",
+                "behavior": "Stretcher entry",
+                "responseRating": {
+                  "score": "3",
+                  "display": "Average response"
+                },
+                "progressToGoal": "80"
+              }
+            ],
+            "undesirableBehavior": {
+              "description": "Mouthing",
+              "comments": "Mouthed the mat twice; not reinforced."
+            },
+            "audit": "2026-09-19T10:21:37-07:00 Lindqvist, Sam"
+          }
+        ]
+      },
+      "welfareAssessments": [
+        {
+          "originRef": "welfareAssessment.2410",
+          "recordDateTime": "2026-07-01T10:00:00-07:00",
+          "protocol": "Pinniped Welfare Check",
+          "calculationMethod": "AVG",
+          "score": "0.85",
+          "questions": [
+            {
+              "question": "Body condition",
+              "answer": {
+                "score": "1",
+                "display": "Good"
+              }
+            },
+            {
+              "question": "Activity level",
+              "answer": {
+                "score": "1",
+                "display": "Normal"
+              }
+            },
+            {
+              "question": "Social behavior",
+              "answer": {
+                "score": "0.5",
+                "display": "Some displacement"
+              },
+              "comments": "Displaced at the haul-out by PV-15-01 most mornings."
+            },
+            {
+              "question": "Responds to keepers",
+              "answer": {
+                "score": "1",
+                "display": "Readily"
+              }
+            },
+            {
+              "question": "Eye condition",
+              "answer": {
+                "score": "0.75",
+                "display": "Mild squint"
+              },
+              "comments": "Left eye, chronic."
+            }
+          ],
+          "audit": "2026-07-01T10:40:02-07:00 Petrov, Anya"
+        },
+        {
+          "originRef": "welfareAssessment.2207",
+          "recordDateTime": "2025-07-02T10:00:00-07:00",
+          "protocol": "Pinniped Welfare Check",
+          "calculationMethod": "AVG",
+          "score": "0.78",
+          "animals": {
+            "count": 3,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01",
+              "PV-19-04"
+            ]
+          },
+          "questions": [
+            {
+              "question": "Body condition",
+              "answer": {
+                "score": "1",
+                "display": "Good"
+              }
+            },
+            {
+              "question": "Activity level",
+              "answer": {
+                "score": "0.75",
+                "display": "Slightly low"
+              },
+              "comments": "Hot week; less time in the water."
+            },
+            {
+              "question": "Social behavior",
+              "answer": {
+                "score": "0.6",
+                "display": "Some displacement"
+              }
+            }
+          ],
+          "audit": "2025-07-02T10:31:48-07:00 Petrov, Anya"
+        }
+      ],
+      "actionPlans": [
+        {
+          "originRef": "actionPlan.301",
+          "referenceNumber": "2026-07",
+          "category": "Transfer",
+          "priority": "1",
+          "status": "inProgress",
+          "statusDate": "2026-09-20",
+          "startDate": "2026-09-01",
+          "completionDate": "2026-10-15",
+          "reason": "Move to a new group under the owner's pinniped plan.",
+          "description": "Pre-shipment exam, crate training, transport booking and the records transfer to the receiving facility.",
+          "animals": {
+            "count": 2,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01"
+            ]
+          },
+          "notes": [
+            {
+              "originRef": "actionPlanNote.912",
+              "noteText": "Action Plan request submitted.",
+              "automated": true,
+              "audit": "2026-09-01T15:13:02-07:00 Petrov, Anya"
+            },
+            {
+              "originRef": "actionPlanNote.918",
+              "noteText": "Crate training at 80 percent; she enters and lies down on cue.",
+              "audit": "2026-09-15T11:02:44-07:00 Lindqvist, Sam"
+            },
+            {
+              "originRef": "actionPlanNote.925",
+              "noteText": "Action Plan started.",
+              "automated": true,
+              "audit": "2026-09-20T08:01:10-07:00 Petrov, Anya"
+            }
+          ],
+          "media": [
+            "4310.pdf"
+          ],
+          "audit": "2026-09-01T15:12:26-07:00 Petrov, Anya"
+        }
+      ],
+      "digitalImaging": [
+        {
+          "originRef": "digitalImaging.6120",
+          "recordDate": "2024-05-14",
+          "description": "Skull radiographs, 4 views",
+          "diagnosis": "Worn right upper canine, no root abscess.",
+          "comments": "Taken under anesthesia 3/2024.",
+          "slide": "Cassette 2",
+          "fileNumber": "RAD-24-0117",
+          "equipmentId": "DR-01",
+          "otherId": "DENT-24-03",
+          "externalId": "PACS 88231",
+          "media": [
+            "4180.jpg",
+            "4181.jpg"
+          ],
+          "audit": "2024-05-14T11:30:15-07:00 Ruiz, Daniel"
+        }
+      ],
+      "diets": [
+        {
+          "originRef": "diet.802",
+          "name": "Adult harbor seal - maintenance",
+          "startDate": "2025-10-01",
+          "fedIndividually": true,
+          "batchDiet": false,
+          "comments": "Whole fish thawed under refrigeration; supplements in the first feed.",
+          "energyGoal": {
+            "value": "50.0000",
+            "unit": "kcal",
+            "perUnit": "kg"
+          },
+          "meals": [
+            {
+              "originRef": "meal.4510",
+              "name": "First feed",
+              "schedule": {
+                "pattern": "everyDays",
+                "every": 1,
+                "timeOfDay": "AM",
+                "firstDate": "2025-10-01"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.12801",
+                  "feedItem": "Herring, Pacific",
+                  "quantity": {
+                    "value": "1.2000",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Hand Feed",
+                  "description": "Whole, head on"
+                },
+                {
+                  "originRef": "mealItem.12802",
+                  "feedItem": "Capelin",
+                  "quantity": {
+                    "value": "0.4000",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Hand Feed"
+                },
+                {
+                  "originRef": "mealItem.12803",
+                  "feedItem": "Squid, whole",
+                  "quantity": {
+                    "value": "4.0000",
+                    "unit": "piece"
+                  },
+                  "feedingMethod": "Hand Feed",
+                  "unitEquivalent": {
+                    "value": "0.05",
+                    "unit": "kg"
+                  }
+                }
+              ]
+            },
+            {
+              "originRef": "meal.4511",
+              "name": "Training feed",
+              "schedule": {
+                "pattern": "everyWeeks",
+                "every": 1,
+                "weekDays": [
+                  "Monday",
+                  "Wednesday",
+                  "Friday"
+                ],
+                "timeOfDay": "PM",
+                "firstDate": "2025-10-01"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.12804",
+                  "feedItem": "Herring, Pacific",
+                  "quantity": {
+                    "value": "0.8000",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Training Session"
+                }
+              ]
+            },
+            {
+              "originRef": "meal.4512",
+              "name": "Gelatin treat",
+              "schedule": {
+                "pattern": "timesPerWeek",
+                "every": 1,
+                "times": 2,
+                "firstDate": "2025-10-01"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.12805",
+                  "feedItem": "Fish gelatin",
+                  "quantity": {
+                    "value": "0.2500",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Scatter Feed",
+                  "description": "Cubes, for hydration"
+                }
+              ]
+            },
+            {
+              "originRef": "meal.4513",
+              "name": "Herring roe on kelp",
+              "schedule": {
+                "pattern": "timesPerMonth",
+                "every": 1,
+                "times": 2,
+                "firstDate": "2025-10-01"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.12806",
+                  "feedItem": "Herring roe on kelp",
+                  "quantity": {
+                    "value": "0.1000",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Scatter Feed"
+                }
+              ]
+            },
+            {
+              "originRef": "meal.4514",
+              "name": "Clam day",
+              "schedule": {
+                "pattern": "everyMonths",
+                "every": 1,
+                "monthWeek": "second",
+                "weekDay": "Saturday",
+                "firstDate": "2025-10-11"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.12807",
+                  "feedItem": "Clams, whole",
+                  "quantity": {
+                    "value": "6.0000",
+                    "unit": "piece"
+                  },
+                  "feedingMethod": "Puzzle Feeder",
+                  "unitEquivalent": {
+                    "value": "0.03",
+                    "unit": "kg"
+                  }
+                }
+              ]
+            },
+            {
+              "originRef": "meal.4515",
+              "name": "Weigh-in fish",
+              "schedule": {
+                "pattern": "everyMonths",
+                "every": 1,
+                "monthDay": 1,
+                "firstDate": "2025-11-01"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.12808",
+                  "feedItem": "Herring, Pacific",
+                  "quantity": {
+                    "value": "0.2000",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Training Session"
+                }
+              ]
+            },
+            {
+              "originRef": "meal.4516",
+              "name": "Holiday ice cake",
+              "schedule": {
+                "pattern": "fixedDates",
+                "dates": [
+                  "2025-12-24",
+                  "2026-07-04"
+                ],
+                "firstDate": "2025-12-24"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.12809",
+                  "feedItem": "Capelin",
+                  "quantity": {
+                    "value": "0.3000",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Ice Block"
+                }
+              ]
+            },
+            {
+              "originRef": "meal.4517",
+              "name": "Spare fish",
+              "schedule": {
+                "pattern": "notScheduled"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.12810",
+                  "feedItem": "Herring, Pacific",
+                  "quantity": {
+                    "value": "0.5000",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Hand Feed",
+                  "description": "Only when a feed is missed"
+                }
+              ]
+            }
+          ],
+          "audit": "2025-09-28T14:20:31-07:00 Haldane, Ruth"
+        },
+        {
+          "originRef": "diet.640",
+          "name": "Juvenile harbor seal - growth",
+          "startDate": "2018-07-16",
+          "endDate": "2025-09-30",
+          "discontinuedReason": "Reached adult weight",
+          "fedIndividually": false,
+          "batchDiet": true,
+          "animals": {
+            "count": 2,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01"
+            ]
+          },
+          "meals": [
+            {
+              "originRef": "meal.3011",
+              "name": "Daily ration",
+              "schedule": {
+                "pattern": "everyDays",
+                "every": 1,
+                "firstDate": "2018-07-16"
+              },
+              "items": [
+                {
+                  "originRef": "mealItem.9120",
+                  "feedItem": "Herring, Pacific",
+                  "quantity": {
+                    "value": "2.6000",
+                    "unit": "kg"
+                  },
+                  "feedingMethod": "Hand Feed"
+                }
+              ]
+            }
+          ],
+          "audit": "2018-07-16T13:05:44-07:00 Haldane, Ruth"
+        }
+      ],
+      "media": [
+        {
+          "originRef": "media.4310",
+          "fileName": "4310.pdf",
+          "mediaType": "application/pdf",
+          "sha256": "b6a7bccf429541d83043590391cd87d8e2338bea99a3368b8a31f22e78df0205",
+          "description": "Transport plan, September 2026",
+          "credits": "Petrov, Anya",
+          "fileDateTime": "2026-09-18T09:00:00-07:00",
+          "audit": "2026-09-18T09:12:40-07:00 Petrov, Anya"
+        },
+        {
+          "originRef": "media.4300",
+          "fileName": "4300.mp4",
+          "mediaType": "video/mp4",
+          "sha256": "273d1ae8ce03b78d038f9c553faf4b08cdc877c3fe422d8f4ffaed8ca02840c5",
+          "description": "Voluntary blood draw, September 2026",
+          "credits": "Lindqvist, Sam",
+          "fileDateTime": "2026-09-19T10:05:00-07:00",
+          "audit": "2026-09-19T16:40:12-07:00 Lindqvist, Sam"
+        },
+        {
+          "originRef": "media.4181",
+          "fileName": "4181.jpg",
+          "mediaType": "image/jpeg",
+          "sha256": "ff8e1637e6c889b74c1ff0e9a89f30c37a3a5a5e54209d94a152a951999d6b21",
+          "description": "Skull radiograph, lateral",
+          "credits": "Ruiz, Daniel",
+          "fileDateTime": "2024-05-14T09:02:00-07:00",
+          "audit": "2024-05-14T11:28:40-07:00 Ruiz, Daniel"
+        },
+        {
+          "originRef": "media.4180",
+          "fileName": "4180.jpg",
+          "mediaType": "image/jpeg",
+          "sha256": "c5dc4a289ec069c2b7f290a3afe78f67c21dbdc64d3ba8ce8a9a7357652662d2",
+          "description": "Skull radiograph, dorsoventral",
+          "credits": "Ruiz, Daniel",
+          "fileDateTime": "2024-05-14T08:58:00-07:00",
+          "audit": "2024-05-14T11:28:12-07:00 Ruiz, Daniel"
+        },
+        {
+          "originRef": "TP-M-0077",
+          "recordedAt": {
+            "institutionCode": "900102",
+            "mnemonic": "TERNPT",
+            "name": "Tern Point Marine Rescue"
+          },
+          "fileName": "4232.pdf",
+          "mediaType": "application/pdf",
+          "sha256": "1b2f9da0bcda29c5848a88dda294b67fbb30060b9a28145c173c5325858a281b",
+          "description": "Tern Point discharge summary",
+          "credits": "Tern Point Marine Rescue",
+          "fileDateTime": "2018-07-14T12:00:00-07:00",
+          "audit": "2018-07-14T12:30:05-07:00 Moreau, Jules"
+        },
+        {
+          "originRef": "media.4101",
+          "fileName": "4101.jpg",
+          "mediaType": "image/jpeg",
+          "sha256": "3fc76d7c8a8444e6040fb221fe5f5adb44c31ed8370d0c5dfe5332ee2cd2188d",
+          "description": "Identification photo, left profile",
+          "credits": "Petrov, Anya",
+          "fileDateTime": "2018-07-16T10:00:00-07:00",
+          "audit": "2018-07-16T10:15:40-07:00 Petrov, Anya"
+        }
+      ],
+      "feedings": [
+        {
+          "originRef": "feeding.9120",
+          "recordDateTime": "2026-09-21T08:45:00-07:00",
+          "items": [
+            {
+              "originRef": "feedingItem.18001",
+              "feedItem": "Herring, Pacific",
+              "offered": {
+                "value": "1.2000",
+                "unit": "kg"
+              },
+              "consumed": {
+                "value": "1.2000",
+                "unit": "kg"
+              },
+              "offeredEnergy": {
+                "value": "2520.0000",
+                "unit": "kcal"
+              },
+              "consumedEnergy": {
+                "value": "2520.0000",
+                "unit": "kcal"
+              },
+              "feedingMethod": "Hand Feed",
+              "description": "Whole, head on"
+            },
+            {
+              "originRef": "feedingItem.18002",
+              "feedItem": "Squid, whole",
+              "offered": {
+                "value": "4.0000",
+                "unit": "piece"
+              },
+              "consumed": {
+                "value": "3.0000",
+                "unit": "piece"
+              },
+              "offeredEnergy": {
+                "value": "152.0000",
+                "unit": "kcal"
+              },
+              "consumedEnergy": {
+                "value": "114.0000",
+                "unit": "kcal"
+              },
+              "feedingMethod": "Hand Feed",
+              "unitEquivalent": {
+                "value": "0.05",
+                "unit": "kg"
+              }
+            }
+          ],
+          "appetite": "Good",
+          "comments": "Left one squid.",
+          "audit": "2026-09-21T08:58:11-07:00 Duarte, Mia"
+        },
+        {
+          "originRef": "feeding.9077",
+          "recordDateTime": "2026-09-14T15:30:00-07:00",
+          "items": [
+            {
+              "originRef": "feedingItem.17940",
+              "feedItem": "Herring, Pacific",
+              "offered": {
+                "value": "3.0000",
+                "unit": "kg"
+              },
+              "consumed": {
+                "value": "2.7000",
+                "unit": "kg"
+              },
+              "feedingMethod": "Scatter Feed"
+            }
+          ],
+          "appetite": "Fair",
+          "comments": "Group scatter feed.",
+          "animals": {
+            "count": 3,
+            "localIds": [
+              "PV-17-02",
+              "PV-15-01",
+              "PV-19-04"
+            ]
+          },
+          "audit": "2026-09-14T15:44:59-07:00 Duarte, Mia"
+        }
+      ]
+    }
+  }
+}

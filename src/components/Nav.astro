@@ -1,0 +1,96 @@
+---
+import LogoWordmark from "./LogoWordmark.astro";
+import { withBase, stripBase } from "../lib/paths";
+
+const pathname = stripBase(Astro.url.pathname).replace(/\/$/, "") || "/";
+const isActive = (href: string) =>
+  href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+const links = [
+  { href: "/for-vendors", label: "For software vendors" },
+  { href: "/about", label: "About" },
+];
+
+/** The menu's one button. Contact lives in the footer and in each page's call to action. */
+const action = { href: "/viewer", label: "Passport viewer" };
+
+---
+<header
+  id="site-nav"
+  data-scrolled="true"
+  class="sticky top-0 z-50 transition-colors duration-300 text-navy-900
+         border-b border-transparent bg-cream-50/0
+         data-[scrolled=true]:border-rule-200 data-[scrolled=true]:bg-cream-50/95 data-[scrolled=true]:backdrop-blur"
+>
+  <div class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between gap-6">
+    <LogoWordmark />
+
+    <nav aria-label="Main" class="hidden lg:flex items-center gap-6 text-[15px]">
+      {links.map((link) => (
+        <a
+          href={withBase(link.href)}
+          aria-current={isActive(link.href) ? "page" : undefined}
+          class="whitespace-nowrap text-current/85 hover:text-current aria-[current=page]:text-current aria-[current=page]:font-medium transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={withBase(action.href)}
+        aria-current={isActive(action.href) ? "page" : undefined}
+        class="whitespace-nowrap rounded-full bg-teal-700 text-cream-50 px-4 py-2 font-medium hover:bg-teal-600 transition-colors"
+      >
+        {action.label}
+      </a>
+    </nav>
+
+    <nav aria-label="Main" class="lg:hidden">
+      <details class="relative">
+        <summary class="list-none [&::-webkit-details-marker]:hidden cursor-pointer rounded-full border border-navy-700 text-navy-900 px-4 py-2 font-medium hover:bg-navy-900 hover:text-cream-50 transition-colors">
+          Menu
+        </summary>
+        <ul class="absolute right-0 mt-2 w-64 rounded-lg border border-rule-200 bg-cream-50 text-navy-900 shadow-lg py-2">
+          {links.map((link) => (
+            <li>
+              <a
+                href={withBase(link.href)}
+                aria-current={isActive(link.href) ? "page" : undefined}
+                class="block px-4 py-2 hover:bg-cream-100 aria-[current=page]:font-medium"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+          <li><hr class="my-2 border-rule-200" /></li>
+          <li>
+            <a
+              href={withBase(action.href)}
+              aria-current={isActive(action.href) ? "page" : undefined}
+              class="block px-4 py-2 hover:bg-cream-100 aria-[current=page]:font-medium"
+            >
+              {action.label}
+            </a>
+          </li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Transparent over the hero; a cream bar with a hairline once the page scrolls.
+  // Pages with a hero render a [data-nav-sentinel] element at the top of <main>;
+  // pages without one keep the default solid nav.
+  const nav = document.getElementById("site-nav");
+  const sentinel = document.querySelector("[data-nav-sentinel]");
+  if (nav && sentinel) {
+    nav.dataset.scrolled = "false";
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        nav.dataset.scrolled = entry.isIntersecting ? "false" : "true";
+      },
+      { rootMargin: "-1px 0px 0px 0px" }
+    );
+    obs.observe(sentinel);
+  }
+</script>

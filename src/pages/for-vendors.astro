@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Section from "../components/Section.astro";
+import { withBase } from "../lib/paths";
+import { SPEC_HREF as specHref, NEW_TAB, isExternal } from "../lib/links";
+
+const asks = [
+  "Writing, reading, or both, a zip file containing passport.json and its media files, conforming to the published schema.",
+  "Ignoring fields your system does not recognize, so that newer files never cause your reader to fail.",
+  "Retaining each record's originRef on import and exporting it unchanged, so that records keep their identity across a series of transfers.",
+  "Following the versioning rules in the specification.",
+];
+
+const neverAsks = [
+  "Sharing data with anyone other than the receiving facility. Animal Passport is a file format, not a data network.",
+  "Paying fees or entering into an agreement.",
+  "Implementing every record type. Export the types your system holds and import the types it can store.",
+  "Connecting to any external service, or depending on any one company's governance.",
+];
+
+const resources = [
+  { title: "The specification", body: "Developed publicly on GitHub, where the specification text, the JSON Schema and the sample passports are published.", href: specHref, link: "github.com/animal-passport/spec" },
+  { title: "Sample passports", body: "Two fictitious animals, a harbor seal and her dam, that together include every field defined in version 0.1.", href: withBase("/examples/pebble.json"), link: "Download Pebble's passport.json" },
+  { title: "The passport viewer", body: "Displays any passport in a web browser, including fields it does not recognize, which makes it a quick check of what your export produces.", href: withBase("/viewer"), link: "Open the viewer" },
+];
+---
+<BaseLayout
+  title="For software vendors — Animal Passport"
+  description="For developers of animal records software: one open format to export and import, in place of a custom integration with every other system. What implementation requires, and what it does not."
+>
+  <PageHeader
+    eyebrow="For software vendors"
+    title="One format in place of every custom integration"
+    lede="Your customers are required to meet AZA standard 1.4.12, and they need complete records for every animal they receive. Animal Passport is an open format for both: implement it once, and your system can exchange records with any other system that does the same."
+  />
+
+  <Section narrow flushTop>
+    <div class="space-y-5 text-navy-700 text-[1.075rem] leading-relaxed">
+      <p>
+        At present, moving an animal's records between two systems requires either a custom integration for that pair of systems or a set of PDF exports. Neither scales, and no vendor can resolve this alone, because a format read by only one system does not serve as a shared standard. A useful format is one that every system in the field can write and read, from the largest networks to in-house databases.
+      </p>
+      <p>
+        Version 0.1 is based on real data. It covers medical, husbandry, welfare, training and transaction records in detail, and its rules were developed by exporting and re-importing complete animal histories. We particularly want to hear where it does not fit your data model.
+      </p>
+    </div>
+  </Section>
+
+  <Section background="cream-100" eyebrow="Implementation" heading="What implementation requires, and what it does not">
+    <div class="grid gap-10 md:grid-cols-2">
+      <div>
+        <h3 class="font-serif text-xl font-medium text-navy-900" style="font-variation-settings: 'opsz' 14;">
+          Required
+        </h3>
+        <ul class="mt-4 space-y-3 text-navy-700 leading-relaxed">
+          {asks.map((a) => (
+            <li class="flex gap-3">
+              <span class="text-teal-700 font-bold mt-1" aria-hidden="true">✓</span>
+              <span>{a}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-serif text-xl font-medium text-navy-900" style="font-variation-settings: 'opsz' 14;">
+          Not required
+        </h3>
+        <ul class="mt-4 space-y-3 text-navy-700 leading-relaxed">
+          {neverAsks.map((a) => (
+            <li class="flex gap-3">
+              <span class="text-muted-500 mt-1" aria-hidden="true">—</span>
+              <span>{a}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <Section eyebrow="Resources" heading="Available now">
+    <div class="grid gap-10 lg:grid-cols-3">
+      {resources.map((r) => (
+        <article>
+          <h3 class="font-serif text-xl font-medium text-navy-900" style="font-variation-settings: 'opsz' 14;">
+            {r.title}
+          </h3>
+          <p class="mt-2 text-navy-700 leading-relaxed">{r.body}</p>
+          <p class="mt-3">
+            <a href={r.href} {...(isExternal(r.href) ? NEW_TAB : {})} class="link font-medium">{r.link} →</a>
+          </p>
+        </article>
+      ))}
+    </div>
+    <p class="mt-10 text-navy-700 leading-relaxed max-w-3xl">
+      How the format is governed, and how stewardship is intended to pass to an independent body, is described on the <a href={withBase("/about")} class="link font-medium">About</a> page.
+    </p>
+  </Section>
+
+  <Section background="teal-50" narrow>
+    <div class="text-center">
+      <h2 class="font-serif text-navy-900 text-[clamp(1.6rem,3vw,2rem)] tracking-tight" style="font-variation-settings: 'opsz' 32;">
+        Review it against your own data
+      </h2>
+      <p class="mt-3 text-navy-700 leading-relaxed max-w-xl mx-auto">
+        The most valuable review comes from people who know a different records system. Tell us where version 0.1 does not fit yours.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href={withBase("/contact?role=vendor")} class="w-full sm:w-auto text-center rounded-full bg-teal-700 text-cream-50 px-6 py-3 font-medium hover:bg-teal-600 transition-colors">Contact us</a>
+        <a href={specHref} {...NEW_TAB} class="w-full sm:w-auto text-center rounded-full border border-teal-700 text-teal-700 px-6 py-3 font-medium hover:bg-cream-50 transition-colors">Specification on GitHub</a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

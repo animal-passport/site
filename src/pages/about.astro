@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Section from "../components/Section.astro";
+import { withBase } from "../lib/paths";
+import { SPEC_HREF as specHref, NEW_TAB } from "../lib/links";
+
+const commitments = [
+  { title: "Open license.", body: "The specification, schemas and reference code are openly licensed, with no fees, royalties or commercial restrictions." },
+  { title: "Open process.", body: "The specification is developed publicly, and changes are proposed, discussed and decided on the public record." },
+  { title: "No vendor-specific fields.", body: "Nothing in the format requires Tracks, or any other product, to write or read it." },
+  { title: "An independent review group.", body: "Before version 1.0, the specification goes to a named review group of registrars, veterinary staff and other vendors, in which Tracks holds a minority of the seats. Its membership and notes will be published." },
+  { title: "Transfer of stewardship.", body: "Once three or more systems support the format, Tracks will propose moving its stewardship to a permanent body, preferably AZA through IDMAG, or otherwise ZRA, a neutral foundation or a joint arrangement, and step back from it." },
+];
+---
+<BaseLayout
+  title="About — Animal Passport"
+  description="Who drafted Animal Passport, why it is an open format rather than a feature of one product, and how it is governed."
+>
+  <PageHeader
+    eyebrow="About"
+    title="An open format, intended for independent stewardship"
+    lede="Accreditation requires an animal's complete history to accompany it, and its care depends on that history. Delivering it in a form the next facility's software can read takes a format that no single records system can provide alone."
+  />
+
+  <Section eyebrow="Origin" narrow>
+    <div class="flex justify-center">
+      <a
+        href="https://trackssoftware.com"
+        {...NEW_TAB}
+        class="inline-block hover:opacity-80 transition-opacity"
+        aria-label="Tracks Software"
+      >
+        <img
+          src={withBase("/tracks-logo.png")}
+          alt="Tracks Software"
+          width="480"
+          height="184"
+          class="h-24 md:h-32 w-auto [filter:invert(1)]"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+    </div>
+    <div class="mt-8 space-y-5 text-navy-700 text-[1.05rem] leading-relaxed">
+      <p>
+        The initial draft was written by Tracks Software, which has developed animal records software for zoos and aquariums since 1998. Its clients have consistently requested a solution to the issue of how difficult it is to transfer records – and this problem is shared among every record keeping system in the market.
+      </p>
+      <p>
+        A Tracks-only export would have been quicker to build, but it would not have solved the problem because a file that only one system can read meets standard 1.4.12 no better than a PDF. Because an animal's records must be readable whichever system the receiving facility uses, the format cannot belong to any one vendor. An open format makes every system that implements it more useful to its customers.
+      </p>
+    </div>
+  </Section>
+
+  <Section background="cream-100" eyebrow="Governance" heading="How the format is governed" narrow>
+    <div class="space-y-5 text-navy-700 text-[1.05rem] leading-relaxed">
+      <p>
+        The specification is maintained in a <a href={specHref} {...NEW_TAB} class="link font-medium">public repository</a> under its own GitHub organization, separate from any Tracks account, so that stewardship can be transferred without changing its address. Changes are proposed, discussed and decided on the public record.
+      </p>
+      <p>
+        In the longer term, the format should not be maintained by a vendor. AZA sets the requirement the format serves, and its Institutional Data Management Scientific Advisory Group (IDMAG) has a published remit that covers this kind of work: data management guidelines, standardized procedures for institutional animal databases, and data standards.
+      </p>
+      <p>
+        This proposal has been submitted to IDMAG for its consideration.
+      </p>
+    </div>
+  </Section>
+
+  <Section eyebrow="Commitments" heading="What Tracks commits to" narrow>
+    <ul class="space-y-4 text-navy-700 text-[1.05rem] leading-relaxed">
+      {commitments.map((c) => (
+        <li class="flex gap-3">
+          <span class="text-teal-700 font-bold mt-1" aria-hidden="true">·</span>
+          <span><strong class="text-navy-900 font-medium">{c.title}</strong> {c.body}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-10 text-navy-700 leading-relaxed">
+      For questions about the project, please <a href={withBase("/contact")} class="link font-medium">contact us</a>.
+    </p>
+  </Section>
+</BaseLayout>
