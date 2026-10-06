@@ -48,7 +48,10 @@ const ogImageUrl = new URL(ogImage, siteUrl).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
+    <link rel="icon" href={withBase("/favicon.ico")} sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />
+    <link rel="manifest" href={withBase("/site.webmanifest")} />
 
     <link
       rel="preload"
