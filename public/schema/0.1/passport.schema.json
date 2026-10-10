@@ -1,0 +1,3954 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://animalpassport.org/schema/0.1/passport.schema.json",
+  "title": "Animal Passport 0.1",
+  "description": "passport.json in an Animal Passport package. Readers ignore properties they do not recognize, so this schema allows them; a writer should put its own values in extensions.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "animalPassport": {
+      "type": "object",
+      "properties": {
+        "manifest": {
+          "$ref": "#/$defs/Manifest"
+        },
+        "core": {
+          "$ref": "#/$defs/Core"
+        },
+        "records": {
+          "type": "object",
+          "description": "The records, by record type. Every key is optional.",
+          "properties": {
+            "identifiers": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Identifier"
+              },
+              "description": "Names, tags, transponders and other identifiers. The primary identifier is always shipped, even when the sender did not choose this type."
+            },
+            "parents": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Parent"
+              },
+              "description": "The animal's parents."
+            },
+            "populations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/PopulationRecord"
+              },
+              "description": "For a group or colony, the current count by life stage."
+            },
+            "rearings": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Rearing"
+              },
+              "description": "How the animal was reared."
+            },
+            "sexHistory": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SexRecord"
+              },
+              "description": "Sex determinations over time."
+            },
+            "anesthesias": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Anesthesia"
+              },
+              "description": "Anesthesia and immobilization records."
+            },
+            "cases": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Case"
+              },
+              "description": "Veterinary cases. Clinical notes refer to them with caseRef."
+            },
+            "chronicConditions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ChronicCondition"
+              },
+              "description": "Long-term conditions and their reviews."
+            },
+            "clinicalNotes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ClinicalNote"
+              },
+              "description": "Veterinary notes."
+            },
+            "digitalImaging": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DigitalImage"
+              },
+              "description": "Radiographs and other diagnostic images."
+            },
+            "drugReactions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DrugReaction"
+              },
+              "description": "Adverse drug reactions."
+            },
+            "labCollections": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LabCollection"
+              },
+              "description": "Sample collections, samples, tests and findings."
+            },
+            "medicalAlerts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/MedicalAlert"
+              },
+              "description": "Alerts for people working with the animal."
+            },
+            "necropsies": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Necropsy"
+              },
+              "description": "Post-mortem examinations."
+            },
+            "prescriptions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Prescription"
+              },
+              "description": "Prescriptions, drugs and doses."
+            },
+            "contraceptions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Contraception"
+              },
+              "description": "Contraception."
+            },
+            "diets": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Diet"
+              },
+              "description": "Diets, meal by meal."
+            },
+            "enrichment": {
+              "$ref": "#/$defs/Enrichment",
+              "description": "Enrichment processes and records."
+            },
+            "feedings": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Feeding"
+              },
+              "description": "Feeding records."
+            },
+            "measurements": {
+              "$ref": "#/$defs/Measurements",
+              "description": "Measurement ranges and measurements."
+            },
+            "nutritionNotes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/NutritionNote"
+              },
+              "description": "Nutrition notes."
+            },
+            "physiologicalReadings": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/PhysiologicalReading"
+              },
+              "description": "Physiological readings such as heart rate."
+            },
+            "actionPlans": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ActionPlan"
+              },
+              "description": "Action plans."
+            },
+            "animalNotes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/AnimalNote"
+              },
+              "description": "General notes about the animal."
+            },
+            "observations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Observation"
+              },
+              "description": "Observations."
+            },
+            "welfareAssessments": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/WelfareAssessment"
+              },
+              "description": "Welfare assessments."
+            },
+            "training": {
+              "$ref": "#/$defs/Training",
+              "description": "Trained behaviors and training sessions."
+            },
+            "transactions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Transaction"
+              },
+              "description": "Acquisitions, dispositions, moves, births and deaths."
+            },
+            "media": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Media"
+              },
+              "description": "The files in the package."
+            }
+          }
+        }
+      },
+      "required": [
+        "manifest",
+        "core",
+        "records"
+      ]
+    }
+  },
+  "required": [
+    "animalPassport"
+  ],
+  "$defs": {
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "A calendar date, YYYY-MM-DD, never shifted between time zones."
+    },
+    "dateTime": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})$",
+      "description": "ISO 8601 local date and time with its UTC offset, for example 2026-08-18T13:34:37-10:00."
+    },
+    "audit": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2}) .+$",
+      "description": "The creation date-time, one space, then the creator's name as the source writes it."
+    },
+    "decimal": {
+      "type": "string",
+      "pattern": "^-?\\d+(\\.\\d+)?$",
+      "description": "A number written as decimal text, so no precision is lost."
+    },
+    "text": {
+      "type": "string",
+      "description": "HTML or plain text. The reader decides which from the content."
+    },
+    "originRef": {
+      "type": "string",
+      "minLength": 1,
+      "description": "An opaque record identity. Compare for equality; never parse."
+    },
+    "fileName": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^/\\\\]+$",
+      "description": "The name of a file in the package's media/ folder."
+    },
+    "population": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "A count as males.females.unknown, for example 1.0.2."
+    },
+    "populationChange": {
+      "type": "string",
+      "pattern": "^-?\\d+\\.-?\\d+\\.-?\\d+$",
+      "description": "Animals involved, as males.females.unknown; a count may be negative where it is a change."
+    },
+    "amount": {
+      "type": "object",
+      "description": "A measured amount. The value is decimal text (text for a non-numeric lab result); the unit is UCUM where the writer knows the code, otherwise the source's spelling.",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "rate": {
+      "type": "object",
+      "description": "An amount per unit, for example 5 mg per kg.",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "perUnit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "range": {
+      "type": "object",
+      "properties": {
+        "low": {
+          "$ref": "#/$defs/decimal"
+        },
+        "high": {
+          "$ref": "#/$defs/decimal"
+        }
+      }
+    },
+    "rating": {
+      "type": "object",
+      "description": "A rating: the source's score and its label. Either may be absent.",
+      "properties": {
+        "score": {
+          "type": "string"
+        },
+        "display": {
+          "type": "string"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "score"
+          ]
+        },
+        {
+          "required": [
+            "display"
+          ]
+        }
+      ]
+    },
+    "facility": {
+      "type": "object",
+      "description": "A facility: its name, and its code and mnemonic when known. At least one of the three is present; the name should be.",
+      "properties": {
+        "institutionCode": {
+          "type": "string"
+        },
+        "mnemonic": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "name"
+          ]
+        },
+        {
+          "required": [
+            "mnemonic"
+          ]
+        },
+        {
+          "required": [
+            "institutionCode"
+          ]
+        }
+      ]
+    },
+    "animals": {
+      "type": "object",
+      "description": "On a record that covers more than one animal: how many, and up to ten of their local identifiers, the exported animal first.",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "localIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10
+        }
+      },
+      "required": [
+        "count"
+      ]
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Values only the writing system understands, under a namespace named for that system. Readers ignore namespaces they do not know.",
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "weekDay": {
+      "enum": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ]
+    },
+    "schedule": {
+      "type": "object",
+      "description": "A repeating schedule, shared by dose frequencies and diet meals.",
+      "properties": {
+        "pattern": {
+          "enum": [
+            "everyHours",
+            "everyDays",
+            "everyWeeks",
+            "everyMonths",
+            "timesPerDay",
+            "timesPerWeek",
+            "timesPerMonth",
+            "fixedDates",
+            "asNeeded",
+            "singleDose",
+            "notScheduled"
+          ]
+        },
+        "every": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "times": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "weekDays": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/weekDay"
+          }
+        },
+        "monthDay": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        },
+        "monthWeek": {
+          "enum": [
+            "first",
+            "second",
+            "third",
+            "fourth",
+            "last"
+          ]
+        },
+        "weekDay": {
+          "$ref": "#/$defs/weekDay"
+        },
+        "dates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/date"
+          }
+        },
+        "timeOfDay": {
+          "type": "string"
+        },
+        "firstDate": {
+          "$ref": "#/$defs/date"
+        }
+      },
+      "required": [
+        "pattern"
+      ]
+    },
+    "doseDuration": {
+      "description": "How long a dose continues: a value in days, doses or weeks, or until further notice.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/decimal"
+            },
+            "unit": {
+              "enum": [
+                "days",
+                "doses",
+                "weeks"
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "unit"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "untilFurtherNotice": {
+              "const": true
+            }
+          },
+          "required": [
+            "untilFurtherNotice"
+          ]
+        }
+      ]
+    },
+    "Manifest": {
+      "type": "object",
+      "description": "The manifest: what the file is, who wrote it and what it contains.",
+      "properties": {
+        "specVersion": {
+          "const": "0.1",
+          "description": "The version of this specification the file follows."
+        },
+        "transferBatchKey": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+          "description": "A UUID identifying this package. A reader can use it to refuse importing the same package twice."
+        },
+        "exportedDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the package was written."
+        },
+        "exportedBy": {
+          "type": "string",
+          "description": "The person who exported it, as the source system writes the name."
+        },
+        "originSoftware": {
+          "$ref": "#/$defs/Software",
+          "description": "The system that wrote the file."
+        },
+        "holderFacility": {
+          "$ref": "#/$defs/facility",
+          "description": "The facility holding the animal when the passport was written. Expected; absent only when the source does not know it."
+        },
+        "ownerFacility": {
+          "$ref": "#/$defs/facility",
+          "description": "The animal's owner, when known."
+        },
+        "contents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContentsRow"
+          },
+          "description": "One row for every record type the file carries, and for every type the sender chose to share even when it has no records. A record type the sender did not share is absent."
+        }
+      },
+      "required": [
+        "specVersion",
+        "transferBatchKey",
+        "exportedDateTime",
+        "originSoftware",
+        "contents"
+      ]
+    },
+    "Software": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The software's name."
+        },
+        "version": {
+          "type": "string",
+          "description": "Its version."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "ContentsRow": {
+      "type": "object",
+      "properties": {
+        "recordType": {
+          "type": "string",
+          "description": "The key under `records`, for example `prescriptions`."
+        },
+        "recordCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "How many records of that type the file carries. For a grouped type (`measurements`, `enrichment`, `training`) it counts the `records`, not the configuration beside them. 0 means the type was shared and the animal has none."
+        }
+      },
+      "required": [
+        "recordType",
+        "recordCount"
+      ]
+    },
+    "Core": {
+      "type": "object",
+      "description": "Who the animal is. Always present.",
+      "properties": {
+        "gan": {
+          "type": "string",
+          "description": "The animal's Global Accession Number, when it has one. At least one of `localId` and `gan` is required."
+        },
+        "localId": {
+          "type": "string",
+          "description": "The holder's local identifier for the animal. At least one of `localId` and `gan` is required."
+        },
+        "taxonomy": {
+          "$ref": "#/$defs/Taxonomy",
+          "description": "What the animal is."
+        },
+        "currentSex": {
+          "type": "string",
+          "description": "The current sex, as the source writes it (for example `Female`)."
+        },
+        "birth": {
+          "$ref": "#/$defs/Birth",
+          "description": "Birth or hatch."
+        },
+        "animalType": {
+          "enum": [
+            "individual",
+            "group",
+            "colony"
+          ],
+          "description": "Whether the record is one animal, a group or a colony."
+        },
+        "lifeCycle": {
+          "$ref": "#/$defs/LifeCycle",
+          "description": "Life-cycle state."
+        },
+        "population": {
+          "$ref": "#/$defs/population",
+          "description": "The current count as males.females.unknown: for an individual `1.0.0`, `0.1.0` or `0.0.1`; for a group or colony, its members."
+        }
+      },
+      "required": [
+        "taxonomy"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "localId"
+          ]
+        },
+        {
+          "required": [
+            "gan"
+          ]
+        }
+      ]
+    },
+    "Taxonomy": {
+      "type": "object",
+      "properties": {
+        "common": {
+          "type": "string",
+          "description": "The common name."
+        },
+        "scientificName": {
+          "type": "string",
+          "description": "The scientific name."
+        },
+        "rank": {
+          "type": "string",
+          "description": "The taxonomic rank of that name (for example `Species`, `Subspecies`)."
+        },
+        "taxonIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TaxonId"
+          },
+          "description": "Identifiers in public taxonomic databases."
+        }
+      },
+      "required": [
+        "scientificName"
+      ]
+    },
+    "TaxonId": {
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "type": "string",
+          "description": "The database: `itis` or `gbif`. Other public schemes may be added in later versions."
+        },
+        "value": {
+          "type": "string",
+          "description": "The identifier in that database."
+        }
+      },
+      "required": [
+        "scheme",
+        "value"
+      ]
+    },
+    "Birth": {
+      "type": "object",
+      "properties": {
+        "birthDate": {
+          "$ref": "#/$defs/date",
+          "description": "The best single date of birth or hatch."
+        },
+        "birthDateEarliest": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The earliest the date can be. Equal to `birthDate` when the date is exact; `null` when there is no lower bound."
+        },
+        "birthDateLatest": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The latest the date can be; `null` when there is no upper bound."
+        },
+        "birthType": {
+          "type": "string",
+          "description": "For example `Captive born`, `Wild born`."
+        },
+        "hybrid": {
+          "type": "string",
+          "description": "Hybrid status, as the source writes it."
+        },
+        "birthInstitution": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the animal was born or hatched."
+        }
+      }
+    },
+    "LifeCycle": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "description": "`live`, `preBirth` or `dead`. A value outside these is shipped as the source holds it."
+        },
+        "initial": {
+          "type": "string",
+          "description": "The state the record began in, with the same values."
+        }
+      }
+    },
+    "SexRecord": {
+      "type": "object",
+      "description": "A dated determination of the animal's sex.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the sex was determined or recorded."
+        },
+        "sex": {
+          "type": "string",
+          "description": "The sex, as the source writes it."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "sex"
+      ]
+    },
+    "Identifier": {
+      "type": "object",
+      "description": "A name, tag, transponder or other identifier.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "primary": {
+          "type": "boolean",
+          "description": "`true` on the animal's primary identifier, which is always shipped and listed first. Absent on the others."
+        },
+        "identifierType": {
+          "type": "string",
+          "description": "For example `House Name`, `Transponder`, `Flipper Tag`."
+        },
+        "value": {
+          "type": "string",
+          "description": "The identifier itself."
+        },
+        "location": {
+          "type": "string",
+          "description": "Where on the animal it is, for a physical identifier."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When it was applied or recorded."
+        },
+        "removalDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When it was removed. An identifier with a removal date is no longer current."
+        },
+        "removalComments": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fileName"
+          },
+          "description": "Photographs of the identifier. On the primary identifier, the identification photo."
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "value"
+      ]
+    },
+    "Parent": {
+      "type": "object",
+      "description": "A parent of the animal.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "parentType": {
+          "type": "string",
+          "description": "For example `Dam`, `Sire`."
+        },
+        "probability": {
+          "$ref": "#/$defs/decimal",
+          "description": "The probability of parentage, 0 to 1, when the source records one."
+        },
+        "unknownReason": {
+          "enum": [
+            "undetermined",
+            "wild"
+          ],
+          "description": "Why the parent is unknown: `wild` for a wild parent, `undetermined` otherwise. Present only when the parent is not identified."
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ParentId"
+          },
+          "description": "The parent's identifiers, each with the facility it applies at."
+        },
+        "birthDate": {
+          "$ref": "#/$defs/date",
+          "description": "The parent's date of birth."
+        },
+        "taxon": {
+          "type": "string",
+          "description": "The parent's scientific name."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "ParentId": {
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "enum": [
+            "local",
+            "gan"
+          ],
+          "description": "`local` for a facility's local identifier, `gan` for a Global Accession Number."
+        },
+        "role": {
+          "enum": [
+            "source",
+            "holder",
+            "owner"
+          ],
+          "description": "`source`: the identifier at the exporting facility; `holder` or `owner`: at the parent's holder or owner."
+        },
+        "facility": {
+          "$ref": "#/$defs/facility",
+          "description": "The facility the identifier belongs to."
+        },
+        "value": {
+          "type": "string",
+          "description": "The identifier."
+        }
+      },
+      "required": [
+        "scheme",
+        "value"
+      ]
+    },
+    "Rearing": {
+      "type": "object",
+      "description": "How the animal was reared.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "rearingType": {
+          "type": "string",
+          "description": "For example `Hand`, `Parent`."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "rearingType"
+      ]
+    },
+    "PopulationRecord": {
+      "type": "object",
+      "description": "A count by life stage, for a group or colony. Derived at the source, so it carries no `originRef`.",
+      "properties": {
+        "lifeStage": {
+          "type": "string",
+          "description": "For example `Adult`, `Juvenile`."
+        },
+        "population": {
+          "$ref": "#/$defs/population",
+          "description": "The count as males.females.unknown."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions"
+        }
+      },
+      "required": [
+        "population"
+      ]
+    },
+    "Transaction": {
+      "type": "object",
+      "description": "An acquisition, disposition, move, birth, death or other transaction, with the holder and owner after it.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the transaction took place."
+        },
+        "transactionType": {
+          "$ref": "#/$defs/TransactionType",
+          "description": "What kind of transaction it was."
+        },
+        "enclosureName": {
+          "type": "string",
+          "description": "The enclosure involved, by name."
+        },
+        "population": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TransactionPopulation"
+          },
+          "description": "The animals the transaction involves, by life stage. See TransactionPopulation."
+        },
+        "ownerAfterTransaction": {
+          "$ref": "#/$defs/facility",
+          "description": "The owner after the transaction."
+        },
+        "holderAfterTransaction": {
+          "$ref": "#/$defs/facility",
+          "description": "The holder after the transaction."
+        },
+        "geo": {
+          "$ref": "#/$defs/Geo",
+          "description": "Where it happened, for a transaction outside a facility such as a wild capture or stranding."
+        },
+        "death": {
+          "$ref": "#/$defs/Death",
+          "description": "Death details, on a death."
+        },
+        "rescue": {
+          "$ref": "#/$defs/Rescue",
+          "description": "Rescue and stranding details."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "transactionType"
+      ]
+    },
+    "TransactionType": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The transaction type as the source names it (for example `Move Animal`, `Death`)."
+        },
+        "category": {
+          "type": "string",
+          "description": "The broad category the type belongs to (for example `Acquisition`, `Disposition`, `Death`, `Move Animal`), so a reader can act on types it does not recognize."
+        }
+      },
+      "required": [
+        "description"
+      ]
+    },
+    "TransactionPopulation": {
+      "type": "object",
+      "description": "The animals a transaction involves in one life stage, as males.females.unknown: for a death or a move, how many; for a life-stage change, the change in each stage, so a count may be negative (`0.-1.0` in one stage and `0.1.0` in the next).",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "lifeStage": {
+          "type": "string"
+        },
+        "population": {
+          "$ref": "#/$defs/populationChange"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "population"
+      ]
+    },
+    "Geo": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The place, described."
+        },
+        "city": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "bodyOfWater": {
+          "type": "string"
+        },
+        "latitude": {
+          "$ref": "#/$defs/decimal",
+          "description": "Decimal degrees."
+        },
+        "longitude": {
+          "$ref": "#/$defs/decimal",
+          "description": "Decimal degrees."
+        },
+        "latLonType": {
+          "type": "string",
+          "description": "How the position was taken, for example `GPS`."
+        },
+        "latLonEstimated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "depth": {
+          "$ref": "#/$defs/amount"
+        },
+        "airTemperature": {
+          "$ref": "#/$defs/amount"
+        },
+        "waterTemperature": {
+          "$ref": "#/$defs/amount"
+        },
+        "weather": {
+          "type": "string"
+        }
+      }
+    },
+    "Death": {
+      "type": "object",
+      "properties": {
+        "submittedDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the death record was submitted."
+        },
+        "submittedBy": {
+          "type": "string"
+        },
+        "history": {
+          "type": "string",
+          "description": "The clinical history leading to the death."
+        },
+        "carcassCondition": {
+          "type": "string"
+        },
+        "deathType": {
+          "type": "string",
+          "description": "For example `Euthanasia`, `Found dead`."
+        },
+        "euthanasiaMethod": {
+          "type": "string"
+        },
+        "ageAtDeathDays": {
+          "$ref": "#/$defs/decimal",
+          "description": "Age at death in days, as the source recorded it."
+        },
+        "ageCategory": {
+          "type": "string"
+        },
+        "inZooSinceDate": {
+          "$ref": "#/$defs/date",
+          "description": "When the animal arrived at the facility where it died."
+        },
+        "acquisitionTransactionRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The `originRef` of the transaction by which that facility acquired the animal."
+        },
+        "acquisitionInstitution": {
+          "$ref": "#/$defs/facility",
+          "description": "The facility it was acquired from."
+        },
+        "environmentNote": {
+          "type": "string"
+        },
+        "exhibitStatus": {
+          "type": "string"
+        },
+        "medicalStatus": {
+          "type": "string"
+        },
+        "deathCode": {
+          "type": "string",
+          "description": "The source's own death code."
+        }
+      }
+    },
+    "Rescue": {
+      "type": "object",
+      "description": "Details of a rescue or stranding response. They can include the name, telephone and address of a member of the public; a sender should share them only where that is appropriate.",
+      "properties": {
+        "eventConfirmed": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Whether the stranding or rescue was confirmed."
+        },
+        "confirmation": {
+          "type": "string"
+        },
+        "observerName": {
+          "type": "string"
+        },
+        "observerPhone": {
+          "type": "string"
+        },
+        "observerAddress": {
+          "type": "string"
+        },
+        "reportDate": {
+          "$ref": "#/$defs/date"
+        },
+        "animalConditionAtReport": {
+          "type": "string"
+        },
+        "weatherConditionAtReport": {
+          "type": "string"
+        },
+        "animalConditionAtRescue": {
+          "type": "string"
+        },
+        "fisheryInteraction": {
+          "type": "string"
+        },
+        "fisheryInteractionDetails": {
+          "type": "string"
+        },
+        "boatStrike": {
+          "type": "string"
+        },
+        "boatStrikeDetails": {
+          "type": "string"
+        },
+        "humanInteraction": {
+          "type": "string"
+        },
+        "humanInteractionDetails": {
+          "type": "string"
+        },
+        "gearList": {
+          "type": "string"
+        },
+        "gearDescriptionList": {
+          "type": "string"
+        },
+        "potGear": {
+          "type": "string"
+        },
+        "gillnetGear": {
+          "type": "string"
+        },
+        "otherGear": {
+          "type": "string"
+        },
+        "line1Diameter": {
+          "$ref": "#/$defs/amount"
+        },
+        "line1DiameterEstimated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "line1Type": {
+          "type": "string"
+        },
+        "line1Color": {
+          "type": "string"
+        },
+        "line2Diameter": {
+          "$ref": "#/$defs/amount"
+        },
+        "line2DiameterEstimated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "line2Type": {
+          "type": "string"
+        },
+        "line2Color": {
+          "type": "string"
+        },
+        "line3Diameter": {
+          "$ref": "#/$defs/amount"
+        },
+        "line3DiameterEstimated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "line3Type": {
+          "type": "string"
+        },
+        "line3Color": {
+          "type": "string"
+        },
+        "floatBuoys": {
+          "type": "string"
+        },
+        "buoyPotId": {
+          "type": "string"
+        },
+        "gearCollected": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "gearCollectedDetails": {
+          "type": "string"
+        },
+        "gearRemoved": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "gearRemovedDetails": {
+          "type": "string"
+        },
+        "typeOfHook": {
+          "type": "string"
+        },
+        "locationOfHook": {
+          "type": "string"
+        },
+        "lineAttached": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "leaderLineAttached": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "surgeryNecessary": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "causeOfStranding": {
+          "type": "string"
+        },
+        "strandingType": {
+          "type": "string"
+        },
+        "ageCategory": {
+          "type": "string"
+        }
+      }
+    },
+    "AnimalNote": {
+      "type": "object",
+      "description": "A general note about the animal.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "category": {
+          "type": "string",
+          "description": "The note's category, as the source names it."
+        },
+        "noteText": {
+          "$ref": "#/$defs/text",
+          "description": "The note. See Text."
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "noteText"
+      ]
+    },
+    "ClinicalNote": {
+      "type": "object",
+      "description": "A veterinary note.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "category": {
+          "type": "string"
+        },
+        "caseRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The `originRef` of the case the note belongs to, when it belongs to one."
+        },
+        "noteText": {
+          "$ref": "#/$defs/text",
+          "description": "The note. Records embedded in a note travel inside it; see Text."
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "noteText"
+      ]
+    },
+    "NutritionNote": {
+      "type": "object",
+      "description": "A nutrition note.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "category": {
+          "type": "string"
+        },
+        "noteText": {
+          "$ref": "#/$defs/text"
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "noteText"
+      ]
+    },
+    "Case": {
+      "type": "object",
+      "description": "A veterinary case.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "caseNumber": {
+          "type": "string",
+          "description": "The source's case number."
+        },
+        "caseYear": {
+          "type": "string",
+          "description": "The year the case number belongs to."
+        },
+        "caseType": {
+          "type": "string",
+          "description": "For example `Clinical`, `Preshipment`."
+        },
+        "status": {
+          "enum": [
+            "open",
+            "closed"
+          ],
+          "description": "An open case is still being worked at the sending facility."
+        },
+        "openedDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "closedDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "primaryVet": {
+          "type": "string"
+        },
+        "complaint": {
+          "type": "string"
+        },
+        "workingDiagnosis": {
+          "type": "string"
+        },
+        "finalDiagnosis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The final diagnoses."
+        },
+        "finalDiagnosisText": {
+          "type": "string",
+          "description": "Free-text final diagnosis."
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "MedicalAlert": {
+      "type": "object",
+      "description": "A medical alert for people working with the animal.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the alert was created."
+        },
+        "alertLevel": {
+          "type": "string",
+          "description": "For example `Extreme`, `High`, `Medium`, `Low`."
+        },
+        "alertText": {
+          "type": "string"
+        },
+        "closedDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the alert was closed. An alert without one is open."
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "alertText"
+      ]
+    },
+    "ChronicCondition": {
+      "type": "object",
+      "description": "A long-term condition and its reviews.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the condition was recorded."
+        },
+        "condition": {
+          "type": "string",
+          "description": "The condition. Expected, though some sources hold conditions recorded without a name."
+        },
+        "status": {
+          "type": "string",
+          "description": "For example `Active`, `Closed`, `Unmonitored`."
+        },
+        "detailedDescription": {
+          "type": "string"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ConditionReview"
+          }
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "ConditionReview": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "reviewDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "rating": {
+          "$ref": "#/$defs/rating",
+          "description": "How the condition was judged at the review, for example better, same or worse."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string",
+          "description": "What was decided."
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "DrugReaction": {
+      "type": "object",
+      "description": "An adverse reaction to a drug.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the reaction was recorded."
+        },
+        "drug": {
+          "$ref": "#/$defs/Drug"
+        },
+        "reactionLevel": {
+          "type": "string",
+          "description": "For example `Mild`, `Severe`, `Fatal`."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "drug"
+      ]
+    },
+    "Prescription": {
+      "type": "object",
+      "description": "A prescription and its doses.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "status": {
+          "enum": [
+            "prescribed",
+            "dispensed",
+            "closed"
+          ],
+          "description": "`prescribed`: written and not yet dispensed; `dispensed`: being given; `closed`: ended."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When it was prescribed."
+        },
+        "treatmentStartDate": {
+          "$ref": "#/$defs/date",
+          "description": "When treatment starts."
+        },
+        "treatmentEndDate": {
+          "$ref": "#/$defs/date",
+          "description": "When treatment ends, if it has an end."
+        },
+        "prescribedBy": {
+          "type": "string"
+        },
+        "route": {
+          "type": "string",
+          "description": "For example `orally`, `ophthalmic`."
+        },
+        "instructions": {
+          "type": "string"
+        },
+        "deliveryComments": {
+          "type": "string"
+        },
+        "anesthesiaRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The `originRef` of the anesthesia the prescription belongs to, when it does."
+        },
+        "drugUse": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DrugUse"
+          },
+          "description": "The drugs prescribed."
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "DrugUse": {
+      "type": "object",
+      "description": "One drug within a prescription or an anesthetic, and its doses.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "drug": {
+          "$ref": "#/$defs/Drug",
+          "description": "The drug, when the source names one."
+        },
+        "prescriptionType": {
+          "type": "string",
+          "description": "For example `Supplement`, `Preventive`."
+        },
+        "anestheticType": {
+          "type": "string",
+          "description": "Within an anesthetic, for example `Preanesthetic`."
+        },
+        "doses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Dose"
+          }
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Drug": {
+      "type": "object",
+      "description": "A drug. Not a record, so it carries no `originRef`.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The drug's full name as the source writes it. At least one of `name`, `genericName` and `shortName` is present."
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "genericName": {
+          "type": "string"
+        },
+        "concentration": {
+          "$ref": "#/$defs/Concentration"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "name"
+          ]
+        },
+        {
+          "required": [
+            "genericName"
+          ]
+        },
+        {
+          "required": [
+            "shortName"
+          ]
+        }
+      ]
+    },
+    "Concentration": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/decimal",
+          "description": "The amount of drug in one unit of the delivery form."
+        },
+        "unit": {
+          "type": "string",
+          "description": "The unit of that amount (UCUM where known)."
+        },
+        "description": {
+          "type": "string",
+          "description": "The concentration as the source describes it, for example `100 mg tablet`."
+        },
+        "deliveryForm": {
+          "type": "string",
+          "description": "The form the drug is given in, for example `Tablet`, `mL`."
+        }
+      }
+    },
+    "Dose": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "doseRate": {
+          "$ref": "#/$defs/rate",
+          "description": "The dose per unit of body weight, for example 5 mg per kg."
+        },
+        "drugAmount": {
+          "$ref": "#/$defs/amount",
+          "description": "The amount of drug in one dose."
+        },
+        "dose": {
+          "$ref": "#/$defs/amount",
+          "description": "The dose in the delivery form, for example 1 Tablet. Its unit is the delivery form as the source writes it, which in 0.1 is not necessarily a UCUM unit."
+        },
+        "administration": {
+          "enum": [
+            "apply",
+            "give"
+          ],
+          "description": "`apply` for a topical application, `give` otherwise. Absent when unknown."
+        },
+        "frequency": {
+          "$ref": "#/$defs/schedule",
+          "description": "How often the dose is given."
+        },
+        "duration": {
+          "$ref": "#/$defs/doseDuration",
+          "description": "How long it continues."
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Anesthesia": {
+      "type": "object",
+      "description": "An anesthesia or immobilization event.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "number": {
+          "type": "string",
+          "description": "The source's anesthesia number."
+        },
+        "year": {
+          "type": "string"
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "anesthetist": {
+          "type": "string"
+        },
+        "primaryVet": {
+          "type": "string"
+        },
+        "recorder": {
+          "type": "string"
+        },
+        "health": {
+          "type": "string"
+        },
+        "physicalStatus": {
+          "type": "string",
+          "description": "For example an ASA-style class."
+        },
+        "activityLevel": {
+          "type": "string"
+        },
+        "demeanor": {
+          "type": "string"
+        },
+        "bodyCondition": {
+          "type": "string"
+        },
+        "fastingFood": {
+          "type": "string"
+        },
+        "fastingWater": {
+          "type": "string"
+        },
+        "socialConditions": {
+          "type": "string"
+        },
+        "immobilizationConditions": {
+          "type": "string"
+        },
+        "operantConditioning": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Whether trained behavior was used."
+        },
+        "environmentTemperature": {
+          "$ref": "#/$defs/amount"
+        },
+        "waterTemperature": {
+          "$ref": "#/$defs/amount"
+        },
+        "waterType": {
+          "type": "string"
+        },
+        "gasAnestheticCircuit": {
+          "type": "string"
+        },
+        "vitalsMonitor": {
+          "type": "string"
+        },
+        "bpCuff": {
+          "$ref": "#/$defs/BpCuff"
+        },
+        "endotrachealTube": {
+          "type": "string"
+        },
+        "endotrachealTubeComments": {
+          "type": "string"
+        },
+        "inductionRating": {
+          "$ref": "#/$defs/rating"
+        },
+        "recoveryRating": {
+          "$ref": "#/$defs/rating"
+        },
+        "overallRating": {
+          "$ref": "#/$defs/rating"
+        },
+        "restraintStartDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "initialEffectDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "recumbentDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "intubatedDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "extubatedDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "restraintEndDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "approvedDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "weightRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The `originRef` of the measurement set holding the weight used."
+        },
+        "estimatedWeightRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The same, for an estimated weight."
+        },
+        "monitoredTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "What was monitored, for example `Heart Rate`. The readings themselves are physiological readings with an `anesthesiaRef`."
+        },
+        "anesthetics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Anesthetic"
+          }
+        },
+        "catheters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Catheter"
+          }
+        },
+        "complications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Complication"
+          }
+        },
+        "effectObservations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EffectObservation"
+          }
+        },
+        "recoveryObservations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RecoveryObservation"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "BpCuff": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "Anesthetic": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "givenDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "delivery": {
+          "type": "string",
+          "description": "For example `Hand Syringe`, `Dart`."
+        },
+        "deliverySite": {
+          "type": "string"
+        },
+        "injectionRoute": {
+          "type": "string"
+        },
+        "needle": {
+          "$ref": "#/$defs/Needle"
+        },
+        "remoteDelivery": {
+          "$ref": "#/$defs/RemoteDelivery"
+        },
+        "animalWeight": {
+          "$ref": "#/$defs/amount",
+          "description": "The weight the doses were calculated for."
+        },
+        "drugUse": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DrugUse"
+          }
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Needle": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "$ref": "#/$defs/amount"
+        },
+        "gauge": {
+          "type": "string"
+        }
+      }
+    },
+    "RemoteDelivery": {
+      "type": "object",
+      "properties": {
+        "system": {
+          "type": "string"
+        },
+        "dartType": {
+          "type": "string"
+        },
+        "dartCharge": {
+          "type": "string"
+        },
+        "powerSetting": {
+          "type": "string"
+        },
+        "metersToAnimal": {
+          "$ref": "#/$defs/decimal"
+        },
+        "percentDelivered": {
+          "$ref": "#/$defs/decimal"
+        }
+      }
+    },
+    "Catheter": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "catheterType": {
+          "type": "string"
+        },
+        "length": {
+          "$ref": "#/$defs/amount"
+        },
+        "gauge": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Complication": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "complication": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "complication"
+      ]
+    },
+    "EffectObservation": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "RecoveryObservation": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "LabCollection": {
+      "type": "object",
+      "description": "A sample collection and the tests run on it.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the samples were collected."
+        },
+        "collectionReason": {
+          "type": "string"
+        },
+        "fasting": {
+          "type": "string"
+        },
+        "restraintType": {
+          "type": "string"
+        },
+        "activityLevel": {
+          "type": "string"
+        },
+        "healthStatus": {
+          "type": "string"
+        },
+        "collectedBy": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LabSample"
+          }
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "LabSample": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "sampleId": {
+          "type": "string",
+          "description": "The source's sample identifier."
+        },
+        "sampleType": {
+          "type": "string"
+        },
+        "sampleSite": {
+          "type": "string"
+        },
+        "quantity": {
+          "$ref": "#/$defs/amount"
+        },
+        "typical": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Whether the sample is considered typical of the animal."
+        },
+        "storedOnly": {
+          "type": "boolean",
+          "description": "`true` when the sample was stored rather than tested."
+        },
+        "tests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LabTest"
+          }
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "LabTest": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "lab": {
+          "type": "string"
+        },
+        "testMethod": {
+          "type": "string"
+        },
+        "labLocalId": {
+          "type": "string",
+          "description": "The lab's own reference."
+        },
+        "currentStatus": {
+          "type": "string",
+          "description": "The test's status as the source names it."
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LabStatus"
+          },
+          "description": "Each stage the test reached, in order."
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LabFinding"
+          }
+        },
+        "textResults": {
+          "type": "string"
+        },
+        "finalDiagnosis": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "LabStatus": {
+      "type": "object",
+      "description": "Not a record, so it carries no `originRef`.",
+      "properties": {
+        "status": {
+          "enum": [
+            "requested",
+            "sentOut",
+            "resultsIn",
+            "approved"
+          ]
+        },
+        "by": {
+          "type": "string"
+        },
+        "dateTime": {
+          "$ref": "#/$defs/dateTime"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "LabFinding": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "finding": {
+          "type": "string",
+          "description": "What was measured, for example `WBC`."
+        },
+        "result": {
+          "$ref": "#/$defs/amount",
+          "description": "The result. Its value may be text where the result is not a number, for example `1+`."
+        },
+        "reference": {
+          "$ref": "#/$defs/Reference",
+          "description": "The reference range the source holds for this finding and taxon."
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "finding"
+      ]
+    },
+    "Reference": {
+      "type": "object",
+      "properties": {
+        "mean": {
+          "$ref": "#/$defs/decimal"
+        },
+        "low": {
+          "$ref": "#/$defs/decimal"
+        },
+        "high": {
+          "$ref": "#/$defs/decimal"
+        }
+      }
+    },
+    "Necropsy": {
+      "type": "object",
+      "description": "A necropsy (post-mortem examination).",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "necropsyNumber": {
+          "type": "string"
+        },
+        "necropsyYear": {
+          "type": "string"
+        },
+        "recordDate": {
+          "$ref": "#/$defs/date",
+          "description": "When the necropsy was performed."
+        },
+        "deathTransactionRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The `originRef` of the death transaction."
+        },
+        "performedBy": {
+          "type": "string"
+        },
+        "staff": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Everyone involved, one person per entry."
+        },
+        "approvedDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "finalDiagnoses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "noteText": {
+          "$ref": "#/$defs/text",
+          "description": "The diagnosis and every findings section, each section under an `<h3>` heading."
+        },
+        "grossNecropsy": {
+          "type": "string",
+          "description": "Gross findings recorded as a single text, where the source keeps one."
+        },
+        "histopathology": {
+          "$ref": "#/$defs/Histopathology"
+        },
+        "labTestRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/originRef"
+          },
+          "description": "The `originRef`s of related lab tests."
+        },
+        "measurementRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/originRef"
+          },
+          "description": "The `originRef`s of related measurement sets."
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fileName"
+          }
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Histopathology": {
+      "type": "object",
+      "properties": {
+        "lab": {
+          "type": "string"
+        },
+        "labNumber": {
+          "type": "string"
+        },
+        "performedBy": {
+          "type": "string"
+        },
+        "approvedDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "noteText": {
+          "$ref": "#/$defs/text",
+          "description": "The diagnosis, comments and each section, under `<h3>` headings."
+        }
+      }
+    },
+    "DigitalImage": {
+      "type": "object",
+      "description": "A radiograph, ultrasound or other diagnostic image study.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDate": {
+          "$ref": "#/$defs/date"
+        },
+        "description": {
+          "type": "string"
+        },
+        "diagnosis": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "slide": {
+          "type": "string"
+        },
+        "fileNumber": {
+          "type": "string"
+        },
+        "equipmentId": {
+          "type": "string"
+        },
+        "otherId": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string",
+          "description": "An identifier in an external imaging system."
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fileName"
+          },
+          "description": "The image files."
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Measurements": {
+      "type": "object",
+      "description": "Measurements: the animal's ranges, and the measurement sets.",
+      "properties": {
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MeasurementRange"
+          },
+          "description": "The animal's acceptable and goal ranges."
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MeasurementSet"
+          },
+          "description": "The measurements, grouped in sets taken together."
+        }
+      }
+    },
+    "MeasurementRange": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "measureCode": {
+          "$ref": "#/$defs/MeasureCode"
+        },
+        "startDate": {
+          "$ref": "#/$defs/date",
+          "description": "When the range took effect."
+        },
+        "acceptable": {
+          "$ref": "#/$defs/range"
+        },
+        "goal": {
+          "$ref": "#/$defs/range"
+        },
+        "unit": {
+          "type": "string",
+          "description": "The unit of both ranges."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "measureCode"
+      ]
+    },
+    "MeasureCode": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "What is measured, for example `Weight`."
+        },
+        "unitType": {
+          "type": "string",
+          "description": "The kind of unit, for example `Weight`, `Length`."
+        }
+      },
+      "required": [
+        "description"
+      ]
+    },
+    "MeasurementSet": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "measurements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Measurement"
+          }
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Measurement": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "measureCode": {
+          "$ref": "#/$defs/MeasureCode"
+        },
+        "quantity": {
+          "$ref": "#/$defs/amount"
+        },
+        "estimated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "method": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "measureCode",
+        "quantity"
+      ]
+    },
+    "PhysiologicalReading": {
+      "type": "object",
+      "description": "A set of physiological readings taken together.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "anesthesiaRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The `originRef` of the anesthesia the readings were taken during, when they were."
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PhysiologicalDetail"
+          }
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "PhysiologicalDetail": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "type": {
+          "type": "string",
+          "description": "For example `Heart Rate`."
+        },
+        "result": {
+          "$ref": "#/$defs/amount"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "type"
+      ]
+    },
+    "Contraception": {
+      "type": "object",
+      "description": "A contraceptive method in use or used.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDate": {
+          "$ref": "#/$defs/date",
+          "description": "When it started."
+        },
+        "contraceptionType": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "inactive"
+          ],
+          "description": "`active` while it has no removal date."
+        },
+        "permanent": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "removalDate": {
+          "$ref": "#/$defs/date"
+        },
+        "removalComments": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Diet": {
+      "type": "object",
+      "description": "A diet and its meals.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "name": {
+          "type": "string"
+        },
+        "startDate": {
+          "$ref": "#/$defs/date"
+        },
+        "endDate": {
+          "$ref": "#/$defs/date"
+        },
+        "discontinuedReason": {
+          "type": "string"
+        },
+        "fedIndividually": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "batchDiet": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "energyGoal": {
+          "$ref": "#/$defs/rate",
+          "description": "The energy goal, for example 50 kcal per kg. `perUnit` is absent when the goal is a plain amount."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "meals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Meal"
+          }
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Meal": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "name": {
+          "type": "string"
+        },
+        "schedule": {
+          "$ref": "#/$defs/schedule",
+          "description": "When the meal is fed."
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MealItem"
+          }
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "MealItem": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "feedItem": {
+          "type": "string"
+        },
+        "quantity": {
+          "$ref": "#/$defs/amount"
+        },
+        "unitEquivalent": {
+          "$ref": "#/$defs/amount",
+          "description": "For a quantity in a custom unit, the size of one unit, for example 1 `Medium` = 40 g."
+        },
+        "feedingMethod": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "feedItem"
+      ]
+    },
+    "Feeding": {
+      "type": "object",
+      "description": "What was offered and eaten at one feeding.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FeedingItem"
+          }
+        },
+        "appetite": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "FeedingItem": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "feedItem": {
+          "type": "string"
+        },
+        "offered": {
+          "$ref": "#/$defs/amount"
+        },
+        "consumed": {
+          "$ref": "#/$defs/amount"
+        },
+        "offeredEnergy": {
+          "$ref": "#/$defs/amount"
+        },
+        "consumedEnergy": {
+          "$ref": "#/$defs/amount"
+        },
+        "unitEquivalent": {
+          "$ref": "#/$defs/amount"
+        },
+        "feedingMethod": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "feedItem"
+      ]
+    },
+    "Enrichment": {
+      "type": "object",
+      "description": "Enrichment: the processes used, and the enrichment records.",
+      "properties": {
+        "processes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EnrichmentProcess"
+          },
+          "description": "The enrichment processes the records refer to."
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EnrichmentRecord"
+          }
+        }
+      }
+    },
+    "EnrichmentProcess": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "name": {
+          "type": "string",
+          "description": "The process's name."
+        },
+        "summary": {
+          "type": "string",
+          "description": "A one-line description of the process (for example its status, taxa and goals) as the source composes it. Informative, for display only."
+        },
+        "goalRatingLabels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The labels of the process's goal rating scale, in order."
+        },
+        "levelRatingLabels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The labels of its level rating scale, in order."
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "EnrichmentRecord": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "processRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The `originRef` of the process."
+        },
+        "process": {
+          "type": "string",
+          "description": "The process's name."
+        },
+        "levelRating": {
+          "$ref": "#/$defs/rating"
+        },
+        "duration": {
+          "$ref": "#/$defs/amount"
+        },
+        "foodUsed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "onExhibit": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "recordedBy": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "Observation": {
+      "type": "object",
+      "description": "A behavioral or other observation.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "observationType": {
+          "type": "string",
+          "description": "For example `Body Condition`."
+        },
+        "value": {
+          "$ref": "#/$defs/rating",
+          "description": "The observed value and its label."
+        },
+        "observedBy": {
+          "type": "string"
+        },
+        "duration": {
+          "$ref": "#/$defs/amount"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "observationType"
+      ]
+    },
+    "WelfareAssessment": {
+      "type": "object",
+      "description": "A welfare assessment and its answers.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "protocol": {
+          "type": "string",
+          "description": "The assessment protocol used."
+        },
+        "calculationMethod": {
+          "type": "string",
+          "description": "How the overall score was calculated."
+        },
+        "score": {
+          "$ref": "#/$defs/decimal",
+          "description": "The overall score."
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/WelfareQuestion"
+          },
+          "description": "Each question answered. A question left unanswered and without comment is omitted."
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "WelfareQuestion": {
+      "type": "object",
+      "description": "Part of its assessment, so it carries no `originRef`.",
+      "properties": {
+        "question": {
+          "type": "string"
+        },
+        "answer": {
+          "$ref": "#/$defs/rating"
+        },
+        "comments": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "question"
+      ]
+    },
+    "ActionPlan": {
+      "type": "object",
+      "description": "A welfare or management action plan.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "referenceNumber": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "unsubmitted",
+            "pending",
+            "approved",
+            "inProgress",
+            "completed",
+            "canceled"
+          ],
+          "description": "Where the plan stands."
+        },
+        "statusDate": {
+          "$ref": "#/$defs/date"
+        },
+        "startDate": {
+          "$ref": "#/$defs/date"
+        },
+        "completionDate": {
+          "$ref": "#/$defs/date"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ActionPlanNote"
+          },
+          "description": "The plan's log of comments."
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fileName"
+          }
+        },
+        "animals": {
+          "$ref": "#/$defs/animals"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "ActionPlanNote": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "noteText": {
+          "$ref": "#/$defs/text"
+        },
+        "automated": {
+          "type": "boolean",
+          "description": "`true` for an entry the source system wrote itself."
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "noteText"
+      ]
+    },
+    "Training": {
+      "type": "object",
+      "description": "Training: the behaviors, and the training sessions.",
+      "properties": {
+        "behaviors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TrainingBehavior"
+          }
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TrainingSession"
+          },
+          "description": "The training sessions."
+        }
+      }
+    },
+    "TrainingBehavior": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "name": {
+          "type": "string"
+        },
+        "behaviorGoal": {
+          "type": "string"
+        },
+        "approvalStatus": {
+          "type": "string"
+        },
+        "audioCue": {
+          "type": "string"
+        },
+        "visualCue": {
+          "type": "string"
+        },
+        "tactileCue": {
+          "type": "string"
+        },
+        "primaryReinforcement": {
+          "type": "string"
+        },
+        "completedBehaviorDescription": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "string"
+        },
+        "schedule": {
+          "$ref": "#/$defs/TrainingSchedule"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "name"
+      ]
+    },
+    "TrainingSchedule": {
+      "type": "object",
+      "properties": {
+        "timePerSession": {
+          "$ref": "#/$defs/amount"
+        },
+        "sessionsPerDay": {
+          "$ref": "#/$defs/decimal"
+        },
+        "daysPerWeek": {
+          "$ref": "#/$defs/decimal"
+        }
+      }
+    },
+    "TrainingSession": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "recordDateTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "sessionRating": {
+          "$ref": "#/$defs/rating"
+        },
+        "duration": {
+          "$ref": "#/$defs/amount"
+        },
+        "trainers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The trainers, one person per entry."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "sessionBehaviors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SessionBehavior"
+          }
+        },
+        "undesirableBehavior": {
+          "$ref": "#/$defs/UndesirableBehavior"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "SessionBehavior": {
+      "type": "object",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "behaviorRef": {
+          "$ref": "#/$defs/originRef",
+          "description": "The `originRef` of the behavior."
+        },
+        "behavior": {
+          "type": "string",
+          "description": "The behavior's name."
+        },
+        "responseRating": {
+          "$ref": "#/$defs/rating"
+        },
+        "progressToGoal": {
+          "$ref": "#/$defs/decimal",
+          "description": "Percent."
+        },
+        "comments": {
+          "type": "string"
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef"
+      ]
+    },
+    "UndesirableBehavior": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        }
+      }
+    },
+    "Media": {
+      "type": "object",
+      "description": "A file in the package.",
+      "properties": {
+        "originRef": {
+          "type": "string",
+          "description": "The record's identity in the system that first recorded it. Opaque: compare it for equality, never parse it. See originRef."
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The file's name in the package's `media/` folder, without the folder. Records refer to the file by this name."
+        },
+        "mediaType": {
+          "type": "string",
+          "description": "The IANA media type, for example `image/jpeg`."
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The lowercase hexadecimal SHA-256 of the file; `null` when the writer could not include the file."
+        },
+        "description": {
+          "type": "string"
+        },
+        "credits": {
+          "type": "string"
+        },
+        "fileDateTime": {
+          "$ref": "#/$defs/dateTime",
+          "description": "When the file was created or taken."
+        },
+        "recordedAt": {
+          "$ref": "#/$defs/facility",
+          "description": "Where the record was made, when that is not the exporting holder. See recordedAt."
+        },
+        "audit": {
+          "$ref": "#/$defs/audit",
+          "description": "When the record was created and by whom. See audit."
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions",
+          "description": "Values only the writing system understands. See extensions."
+        }
+      },
+      "required": [
+        "originRef",
+        "fileName"
+      ]
+    }
+  }
+}
