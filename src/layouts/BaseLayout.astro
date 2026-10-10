@@ -10,6 +10,8 @@ interface Props {
   description: string;
   /** Path component for canonical URL — defaults to Astro.url.pathname. */
   canonicalPath?: string;
+  /** Leave out the canonical link and og:url, for a page with no URL of its own (the 404 page). */
+  noCanonical?: boolean;
   /** Open Graph image absolute path, e.g. "/og-image.png". */
   ogImage?: string;
 }
@@ -18,6 +20,7 @@ const {
   title,
   description,
   canonicalPath = Astro.url.pathname,
+  noCanonical = false,
   ogImage = withBase("/og-image.png"),
 } = Astro.props;
 
@@ -34,12 +37,12 @@ const ogImageUrl = new URL(ogImage, siteUrl).toString();
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {!noCanonical && <link rel="canonical" href={canonical} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {!noCanonical && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:site_name" content="Animal Passport" />
 
